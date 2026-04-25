@@ -17,8 +17,11 @@ const DifferentiatorDetail = () => {
   return (
     <Layout>
       <section className="relative min-h-[72svh] pt-32 pb-16 md:pt-44 md:pb-24 border-b border-hairline overflow-hidden flex items-end">
-        <div className="absolute inset-0 opacity-35">
-          <img src={item.image} alt="" loading="eager" className="w-full h-full object-cover" />
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-35 md:bg-fixed"
+          style={{ backgroundImage: `url(${item.image})` }}
+          aria-hidden="true"
+        >
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/20" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>

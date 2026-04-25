@@ -31,8 +31,11 @@ const Engage = () => {
   return (
     <Layout>
       <section className="relative pt-32 pb-20 md:pt-44 md:pb-28 border-b border-hairline overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <img src={room} alt="" loading="lazy" className="w-full h-full object-cover" />
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-30 md:bg-fixed"
+          style={{ backgroundImage: `url(${room})` }}
+          aria-hidden="true"
+        >
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/30" />
         </div>
         <div className="relative container-wide">

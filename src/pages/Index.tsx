@@ -235,6 +235,14 @@ const Index = () => {
               {t("nav.corridors")}
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
+            <div className="mt-12 img-frame aspect-[16/7] border border-hairline">
+              <img src={world} alt="" loading="lazy" className="w-full h-full object-cover opacity-75" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
+                <span className="font-mono-tag text-[10px] tracking-[0.22em] text-foreground">CORRIDOR MAP</span>
+                <span className="font-mono-tag text-[10px] tracking-[0.22em] text-signal">ACTIVE</span>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
