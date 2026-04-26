@@ -7,8 +7,51 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import room from "@/assets/engage-room.jpg";
 
 const Engage = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [submitting, setSubmitting] = useState(false);
+  const copy = {
+    en: {
+      eyebrow: "Selective engagement",
+      access: "Execution-dependent access",
+      faq: "FAQ",
+      fastTitle: "Direct routes",
+      fast: [
+        ["Partner with HelioGate", "For operators, buyers, and capital partners aligned to active corridors."],
+        ["Request a corridor brief", "Structured visibility into a defined corridor released on qualification."],
+        ["Press & disclosures", "Selective communications. Disclosures available on request."],
+      ],
+      faqs: [
+        ["Do you publish deal information?", "No. Opportunities are not circulated. Briefs are released only to qualified counterparties on alignment."],
+        ["How long does qualification take?", "Initial review: 5 business days. Full counterparty alignment: corridor-dependent."],
+        ["Do you work with introducers or brokers?", "We do not run a brokerage model. Direct counterparty engagement only."],
+        ["Where are you based?", "HelioGate operates across multiple jurisdictions. Engagement is corridor-defined, not geography-defined."],
+      ],
+    },
+    fr: {
+      eyebrow: "Engagement selectif",
+      access: "Acces dependant de l'execution",
+      faq: "FAQ",
+      fastTitle: "Routes directes",
+      fast: [["Devenir partenaire", "Pour operateurs, acheteurs et capitaux alignes aux corridors actifs."], ["Demander une note corridor", "Visibilite structuree sur un corridor defini, diffusee apres qualification."], ["Presse et divulgations", "Communications selectives. Divulgations disponibles sur demande."]],
+      faqs: [["Publiez-vous les informations de transaction ?", "Non. Les opportunites ne sont pas diffusees. Les notes sont reservees aux contreparties qualifiees."], ["Combien de temps prend la qualification ?", "Revue initiale : 5 jours ouvrables. Alignement complet : selon le corridor."], ["Travaillez-vous avec des introducteurs ?", "Nous n'operons pas un modele de courtage. Engagement direct uniquement."], ["Ou etes-vous bases ?", "HelioGate opere dans plusieurs juridictions. L'engagement est defini par corridor."]],
+    },
+    zh: {
+      eyebrow: "选择性合作",
+      access: "取决于执行的访问",
+      faq: "常见问题",
+      fastTitle: "直接路径",
+      fast: [["与HelioGate合作", "面向与活跃通道对齐的运营方、买方和资本伙伴。"], ["申请通道简报", "在资格确认后提供特定通道的结构化可见性。"], ["媒体与披露", "选择性沟通。披露内容可按请求提供。"]],
+      faqs: [["你们会发布交易信息吗？", "不会。机会不会公开流转。简报仅向对齐的合格交易方发布。"], ["资格审核需要多久？", "初步审核为5个工作日。完整交易方对齐取决于通道。"], ["你们与介绍人或经纪人合作吗？", "我们不采用经纪模式。仅进行直接交易方合作。"], ["你们在哪里运营？", "HelioGate跨多个司法辖区运营。合作按通道定义，而不是按地理位置定义。"]],
+    },
+    ar: {
+      eyebrow: "تواصل انتقائي",
+      access: "وصول مرتبط بالتنفيذ",
+      faq: "الأسئلة الشائعة",
+      fastTitle: "مسارات مباشرة",
+      fast: [["الشراكة مع HelioGate", "للمشغلين والمشترين وشركاء رأس المال المتوافقين مع الممرات النشطة."], ["طلب موجز ممر", "رؤية منظمة لممر محدد تصدر بعد التأهيل."], ["الصحافة والإفصاحات", "تواصل انتقائي. الإفصاحات متاحة عند الطلب."]],
+      faqs: [["هل تنشرون معلومات الصفقات؟", "لا. لا يتم تداول الفرص. تصدر الموجزات فقط للأطراف المؤهلة والمتوافقة."], ["كم يستغرق التأهيل؟", "المراجعة الأولية: 5 أيام عمل. المواءمة الكاملة تعتمد على الممر."], ["هل تعملون مع الوسطاء؟", "لا نتبع نموذج وساطة. التواصل مباشر مع الأطراف فقط."], ["أين يقع عملكم؟", "تعمل HelioGate عبر عدة ولايات. التواصل معرف بالممر وليس بالجغرافيا."]],
+    },
+  }[lang];
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,13 +63,13 @@ const Engage = () => {
     }, 700);
   };
 
-  const fast = [
-    { t: t("eng.fast.partner"), d: t("eng.fast.partner.d"), tag: "01" },
-    { t: t("eng.fast.brief"), d: t("eng.fast.brief.d"), tag: "02" },
-    { t: t("eng.fast.media"), d: t("eng.fast.media.d"), tag: "03" },
-  ];
+  const fast = copy.fast.map(([title, description], index) => ({
+    t: title,
+    d: description,
+    tag: `0${index + 1}`,
+  }));
 
-  const faqs = [1, 2, 3, 4].map((i) => ({ q: t(`eng.faq.q${i}`), a: t(`eng.faq.a${i}`) }));
+  const faqs = copy.faqs.map(([q, a]) => ({ q, a }));
 
   return (
     <Layout>
@@ -39,7 +82,7 @@ const Engage = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/30" />
         </div>
         <div className="relative container-wide">
-          <p className="eyebrow mb-6">— Selective engagement</p>
+          <p className="eyebrow mb-6">- {copy.eyebrow}</p>
           <h1 className="font-serif-display text-5xl md:text-7xl lg:text-8xl leading-[0.98] tracking-tight max-w-4xl">
             {t("eng.title")}
           </h1>
@@ -49,7 +92,7 @@ const Engage = () => {
 
       {/* Fast routes */}
       <Section>
-        <SectionEyebrow>{t("eng.fast.t")}</SectionEyebrow>
+        <SectionEyebrow>{copy.fastTitle}</SectionEyebrow>
         <div className="grid md:grid-cols-3 gap-px bg-hairline border border-hairline mt-6">
           {fast.map((c, i) => (
             <a
@@ -95,7 +138,7 @@ const Engage = () => {
                 </a>
               </div>
               <div className="pt-8 border-t border-hairline">
-                <p className="eyebrow">— Execution-dependent access</p>
+                <p className="eyebrow">- {copy.access}</p>
               </div>
             </div>
           </div>
@@ -135,7 +178,7 @@ const Engage = () => {
       <Section className="border-t border-hairline">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionEyebrow>FAQ</SectionEyebrow>
+            <SectionEyebrow>{copy.faq}</SectionEyebrow>
             <p className="font-serif-display text-3xl md:text-4xl tracking-tight">{t("eng.faq.t")}</p>
           </div>
           <div className="md:col-span-8">

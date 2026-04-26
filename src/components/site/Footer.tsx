@@ -5,17 +5,76 @@ import { useI18n } from "@/i18n/I18nProvider";
 import { ArrowRight } from "lucide-react";
 
 export const Footer = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const year = new Date().getFullYear();
+  const copy = {
+    en: {
+      ctaTitle: "Ready to engage?",
+      ctaDetail: "Selective. Structured. Execution-dependent.",
+      qualified: "By qualified engagement only",
+      explore: "Explore",
+      platform: "Platform",
+      services: "Services",
+      sectors: "Sectors",
+      method: "Method",
+      corridors: "Corridors",
+      insights: "Insights",
+      network: "Network",
+      engage: "Engage",
+    },
+    fr: {
+      ctaTitle: "Pret a engager ?",
+      ctaDetail: "Selectif. Structure. Dependant de l'execution.",
+      qualified: "Uniquement par engagement qualifie",
+      explore: "Explorer",
+      platform: "Plateforme",
+      services: "Services",
+      sectors: "Secteurs",
+      method: "Methode",
+      corridors: "Corridors",
+      insights: "Analyses",
+      network: "Reseau",
+      engage: "Engagement",
+    },
+    zh: {
+      ctaTitle: "准备合作？",
+      ctaDetail: "选择性。结构化。取决于执行。",
+      qualified: "仅限合格合作",
+      explore: "浏览",
+      platform: "平台",
+      services: "服务",
+      sectors: "行业",
+      method: "方法",
+      corridors: "通道",
+      insights: "洞察",
+      network: "网络",
+      engage: "联系",
+    },
+    ar: {
+      ctaTitle: "هل أنت جاهز للتواصل؟",
+      ctaDetail: "انتقائي. منظم. مرتبط بالتنفيذ.",
+      qualified: "فقط عبر تواصل مؤهل",
+      explore: "استكشف",
+      platform: "المنصة",
+      services: "الخدمات",
+      sectors: "القطاعات",
+      method: "المنهجية",
+      corridors: "الممرات",
+      insights: "الرؤى",
+      network: "الشبكة",
+      engage: "التواصل",
+    },
+  }[lang];
 
   return (
     <footer className="border-t border-hairline mt-32">
-      {/* Footer CTA strip */}
       <div className="border-b border-hairline">
         <div className="container-wide py-16 md:py-20 grid md:grid-cols-12 gap-10 items-center">
           <div className="md:col-span-7">
-            <p className="eyebrow mb-4">— {t("foot.cta.d")}</p>
-            <h2 className="font-serif-display text-4xl md:text-5xl tracking-tight leading-[1.05]">{t("foot.cta.t")}</h2>
+            <p className="eyebrow mb-4">- {copy.ctaDetail}</p>
+            <h2 className="font-serif-display text-4xl md:text-5xl tracking-tight leading-[1.05]">
+              {copy.ctaTitle}
+            </h2>
           </div>
           <div className="md:col-span-5 md:text-right">
             <Link to="/engage" className="btn-primary group">
@@ -33,18 +92,21 @@ export const Footer = () => {
             <p className="mt-6 text-sm text-muted-foreground max-w-xs leading-relaxed">{t("foot.desc")}</p>
             <div className="mt-8 flex items-center gap-3">
               <span className="signal-dot" />
-              <p className="eyebrow text-foreground">By qualified engagement only</p>
+              <p className="eyebrow text-foreground">{copy.qualified}</p>
             </div>
           </div>
 
           <div className="md:col-span-3">
-            <p className="eyebrow mb-5">{t("foot.explore")}</p>
+            <p className="eyebrow mb-5">{copy.explore}</p>
             <ul className="space-y-3 text-sm">
-              <li><Link to="/platform" className="text-muted-foreground hover:text-foreground transition">{t("nav.platform")}</Link></li>
-              <li><Link to="/sectors" className="text-muted-foreground hover:text-foreground transition">{t("nav.sectors")}</Link></li>
-              <li><Link to="/corridors" className="text-muted-foreground hover:text-foreground transition">{t("nav.corridors")}</Link></li>
-              <li><Link to="/insights" className="text-muted-foreground hover:text-foreground transition">{t("nav.insights")}</Link></li>
-              <li><Link to="/engage" className="text-muted-foreground hover:text-foreground transition">{t("nav.engage")}</Link></li>
+              <li><Link to="/platform" className="text-muted-foreground hover:text-foreground transition">{copy.platform}</Link></li>
+              <li><Link to="/services" className="text-muted-foreground hover:text-foreground transition">{copy.services}</Link></li>
+              <li><Link to="/sectors" className="text-muted-foreground hover:text-foreground transition">{copy.sectors}</Link></li>
+              <li><Link to="/methodology" className="text-muted-foreground hover:text-foreground transition">{copy.method}</Link></li>
+              <li><Link to="/corridors" className="text-muted-foreground hover:text-foreground transition">{copy.corridors}</Link></li>
+              <li><Link to="/insights" className="text-muted-foreground hover:text-foreground transition">{copy.insights}</Link></li>
+              <li><Link to="/network" className="text-muted-foreground hover:text-foreground transition">{copy.network}</Link></li>
+              <li><Link to="/engage" className="text-muted-foreground hover:text-foreground transition">{copy.engage}</Link></li>
             </ul>
           </div>
 

@@ -1,18 +1,29 @@
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/site/Layout";
 import { Section } from "@/components/site/Section";
+import { resources } from "@/lib/siteContent";
+import { localizeResource, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Search } from "lucide-react";
 import topo from "@/assets/intel-topo.jpg";
 
 const Insights = () => {
-  const { t } = useI18n();
-  const items = [1, 2, 3, 4].map((i) => ({
-    cat: t(`ins.${i}.cat`),
-    title: t(`ins.${i}.t`),
-    body: t(`ins.${i}.d`),
-    date: t(`ins.${i}.date`),
-  }));
+  const { lang } = useI18n();
+  const copy = siteUi(lang);
+  const [query, setQuery] = useState("");
+  const localizedResources = useMemo(
+    () => resources.map((resource, index) => localizeResource(resource, index, lang)),
+    [lang],
+  );
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return localizedResources;
+    return localizedResources.filter((item) =>
+      [item.cat, item.sector, item.title, item.date].some((value) => value.toLowerCase().includes(q)),
+    );
+  }, [localizedResources, query]);
 
   return (
     <Layout>
@@ -25,39 +36,53 @@ const Insights = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
         </div>
         <div className="relative container-wide">
-          <p className="eyebrow mb-6">— Insights</p>
+          <p className="eyebrow mb-6">{copy.insightsEyebrow}</p>
           <h1 className="font-serif-display text-5xl md:text-7xl lg:text-8xl leading-[0.98] tracking-tight max-w-4xl">
-            {t("ins.title")}
+            {copy.insightsTitle}
           </h1>
-          <p className="mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed">{t("ins.sub")}</p>
+          <p className="mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed">
+            {copy.insightsLead}
+          </p>
         </div>
       </section>
 
       <Section>
+        <label className="mb-10 flex items-center gap-4 border border-hairline bg-background px-5 py-4">
+          <Search className="h-4 w-4 text-muted-foreground" />
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={copy.search}
+            className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+          />
+        </label>
+
         <div className="grid md:grid-cols-2 gap-px bg-hairline border border-hairline">
-          {items.map((it, i) => (
-            <article key={i} className="bg-background p-8 md:p-10 group hover:bg-card transition-colors">
-              <div className="flex items-center justify-between mb-8">
+          {filtered.map((it) => (
+            <article key={`${it.cat}-${it.title}`} className="bg-background p-8 md:p-10 group hover:bg-card transition-colors">
+              <div className="flex items-center justify-between gap-4 mb-8">
                 <span className="font-mono-tag text-[10px] uppercase tracking-[0.22em] text-muted-foreground border border-hairline px-2 py-1">
                   {it.cat}
                 </span>
                 <span className="font-mono-tag text-[10px] text-muted-foreground">{it.date}</span>
               </div>
-              <h2 className="font-serif-display text-3xl md:text-4xl leading-[1.1] tracking-tight mb-5">
+              <p className="font-mono-tag text-[10px] uppercase tracking-[0.18em] text-signal mb-4">{it.sector}</p>
+              <h2 className="font-serif-display text-3xl md:text-4xl leading-[1.1] tracking-tight mb-8">
                 {it.title}
               </h2>
-              <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-xl">{it.body}</p>
               <Link
                 to="/engage"
                 className="inline-flex items-center gap-2 font-mono-tag text-[10px] uppercase tracking-[0.22em] text-foreground link-underline"
               >
-                {t("ins.read")}
+                {copy.requestBrief}
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
             </article>
           ))}
         </div>
-        <p className="mt-12 text-sm text-muted-foreground italic">{t("ins.note")}</p>
+        {filtered.length === 0 && (
+          <p className="mt-8 text-sm text-muted-foreground">{copy.noResults}</p>
+        )}
       </Section>
     </Layout>
   );

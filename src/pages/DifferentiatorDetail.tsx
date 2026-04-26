@@ -2,17 +2,32 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { Layout } from "@/components/site/Layout";
 import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section";
 import { differentiators, getDifferentiator } from "@/lib/differentiators";
+import { localizeDifferentiator } from "@/lib/siteI18n";
+import { useI18n } from "@/i18n/I18nProvider";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 
-const DifferentiatorDetail = () => {
-  const { slug } = useParams();
-  const item = getDifferentiator(slug);
+const detailCopy = {
+  en: { why: "Why HelioGate", differentiation: "Differentiation", means: "What this means", meansTitle: "Practical operating discipline, not positioning.", sequence: "Sequence", sequenceTitle: "How it is applied.", next: "Next differentiator", read: "Read Next", engage: "Engage" },
+  fr: { why: "Pourquoi HelioGate", differentiation: "Differenciation", means: "Ce que cela signifie", meansTitle: "Discipline operationnelle pratique, pas du positionnement.", sequence: "Sequence", sequenceTitle: "Comment cela s'applique.", next: "Differenciateur suivant", read: "Lire la suite", engage: "Engager" },
+  zh: { why: "为什么选择 HelioGate", differentiation: "差异化", means: "这意味着什么", meansTitle: "实际运营纪律，而不是定位口号。", sequence: "顺序", sequenceTitle: "如何应用。", next: "下一个差异点", read: "继续阅读", engage: "合作" },
+  ar: { why: "لماذا HelioGate", differentiation: "التميّز", means: "ماذا يعني ذلك", meansTitle: "انضباط تشغيلي عملي وليس تموضعا فقط.", sequence: "التسلسل", sequenceTitle: "كيف يتم تطبيقه.", next: "عامل التميّز التالي", read: "اقرأ التالي", engage: "تواصل" },
+};
 
-  if (!item) {
+const DifferentiatorDetail = () => {
+  const { lang } = useI18n();
+  const copy = detailCopy[lang] ?? detailCopy.en;
+  const { slug } = useParams();
+  const baseItem = getDifferentiator(slug);
+
+  if (!baseItem) {
     return <Navigate to="/why-heliogate" replace />;
   }
 
-  const next = differentiators[(differentiators.findIndex((entry) => entry.slug === item.slug) + 1) % differentiators.length];
+  const item = localizeDifferentiator(baseItem, lang);
+  const next = localizeDifferentiator(
+    differentiators[(differentiators.findIndex((entry) => entry.slug === item.slug) + 1) % differentiators.length],
+    lang,
+  );
 
   return (
     <Layout>
@@ -28,9 +43,9 @@ const DifferentiatorDetail = () => {
         <div className="relative container-wide w-full">
           <Link to="/why-heliogate" className="link-underline mb-10">
             <ArrowLeft className="w-3.5 h-3.5 rtl:rotate-180" />
-            Why HelioGate
+            {copy.why}
           </Link>
-          <p className="eyebrow mb-6">{item.index} - Differentiation</p>
+          <p className="eyebrow mb-6">{item.index} - {copy.differentiation}</p>
           <h1 className="font-serif-display text-5xl md:text-7xl lg:text-8xl leading-[0.98] tracking-tight max-w-5xl">
             {item.title}
           </h1>
@@ -41,8 +56,8 @@ const DifferentiatorDetail = () => {
       <Section>
         <div className="grid md:grid-cols-12 gap-10 items-start">
           <div className="md:col-span-4">
-            <SectionEyebrow>What this means</SectionEyebrow>
-            <SectionTitle>Practical operating discipline, not positioning.</SectionTitle>
+            <SectionEyebrow>{copy.means}</SectionEyebrow>
+            <SectionTitle>{copy.meansTitle}</SectionTitle>
           </div>
           <div className="md:col-span-8">
             <div className="grid md:grid-cols-3 gap-px bg-hairline border border-hairline mb-10">
@@ -73,8 +88,8 @@ const DifferentiatorDetail = () => {
       <Section className="border-t border-hairline">
         <div className="grid md:grid-cols-12 gap-10 mb-12">
           <div className="md:col-span-4">
-            <SectionEyebrow>Sequence</SectionEyebrow>
-            <SectionTitle>How it is applied.</SectionTitle>
+            <SectionEyebrow>{copy.sequence}</SectionEyebrow>
+            <SectionTitle>{copy.sequenceTitle}</SectionTitle>
           </div>
           <div className="md:col-span-8 self-end">
             <p className="text-lg text-muted-foreground leading-relaxed">{item.outcome}</p>
@@ -96,18 +111,18 @@ const DifferentiatorDetail = () => {
       <Section className="border-t border-hairline">
         <div className="grid md:grid-cols-12 gap-10 items-center">
           <div className="md:col-span-7">
-            <p className="eyebrow mb-6">Next differentiator</p>
+            <p className="eyebrow mb-6">{copy.next}</p>
             <h2 className="font-serif-display text-4xl md:text-5xl leading-[1.05] tracking-tight">
               {next.title}
             </h2>
           </div>
           <div className="md:col-span-5 flex flex-wrap md:justify-end gap-4">
             <Link to={`/why-heliogate/${next.slug}`} className="btn-primary group">
-              <span>Read Next</span>
+              <span>{copy.read}</span>
               <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
             </Link>
             <Link to="/engage" className="btn-ghost">
-              Engage
+              {copy.engage}
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>

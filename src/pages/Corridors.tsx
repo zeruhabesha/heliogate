@@ -11,7 +11,13 @@ import infra from "@/assets/sector-infrastructure.jpg";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 const Corridors = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const copy = {
+    en: { intelligence: "Corridor Intelligence", mandate: "Mandate", active: "Active", corridor: "Corridor", signal: "Signal", live: "Live", mining: "Mining", sector: "Sector", status: "Status", qAligned: "Q-aligned", counterparties: "Counterparties", emerging: "Emerging", preActive: "Pre-Active", visibility: "Structured visibility", sectors: "Sectors" },
+    fr: { intelligence: "Intelligence de corridor", mandate: "Mandat", active: "Actif", corridor: "Corridor", signal: "Signal", live: "Direct", mining: "Mines", sector: "Secteur", status: "Statut", qAligned: "Qualifie", counterparties: "Contreparties", emerging: "Emergent", preActive: "Pre-actif", visibility: "Visibilite structuree", sectors: "Secteurs" },
+    zh: { intelligence: "通道情报", mandate: "授权", active: "活跃", corridor: "通道", signal: "信号", live: "实时", mining: "采矿", sector: "行业", status: "状态", qAligned: "已合格对齐", counterparties: "交易方", emerging: "新兴", preActive: "预活跃", visibility: "结构化可见性", sectors: "行业" },
+    ar: { intelligence: "استخبارات الممر", mandate: "التفويض", active: "نشط", corridor: "الممر", signal: "إشارة", live: "مباشر", mining: "التعدين", sector: "القطاع", status: "الحالة", qAligned: "مؤهل", counterparties: "الأطراف", emerging: "ناشئ", preActive: "قبل النشاط", visibility: "رؤية منظمة", sectors: "القطاعات" },
+  }[lang];
 
   return (
     <Layout>
@@ -31,7 +37,7 @@ const Corridors = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
         <div className="relative container-wide">
-          <p className="eyebrow mb-6">— Corridor Intelligence</p>
+          <p className="eyebrow mb-6">- {copy.intelligence}</p>
           <h1 className="font-serif-display text-5xl md:text-7xl lg:text-8xl leading-[0.98] tracking-tight max-w-4xl">
             {t("cor.title")}
           </h1>
@@ -42,7 +48,7 @@ const Corridors = () => {
       <Section>
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <SectionEyebrow>Mandate</SectionEyebrow>
+            <SectionEyebrow>{copy.mandate}</SectionEyebrow>
           </div>
           <div className="md:col-span-8 space-y-6">
             <p className="font-serif-display text-2xl md:text-3xl leading-[1.25] tracking-tight">{t("cor.intro.1")}</p>
@@ -53,7 +59,7 @@ const Corridors = () => {
 
       {/* Active corridor */}
       <Section className="border-t border-hairline">
-        <SectionEyebrow>Active</SectionEyebrow>
+        <SectionEyebrow>{copy.active}</SectionEyebrow>
         <div className="grid md:grid-cols-12 gap-10 mt-2 items-start">
           <div className="md:col-span-5">
             <SectionTitle>{t("cor.active.title")}</SectionTitle>
@@ -68,8 +74,8 @@ const Corridors = () => {
               <img src={corridor} alt="" loading="lazy" className="w-full h-full object-cover opacity-80" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-                <span className="font-mono-tag text-[10px] tracking-[0.22em] text-foreground">CORRIDOR · 01</span>
-                <span className="font-mono-tag text-[10px] tracking-[0.22em] text-signal">SIGNAL · LIVE</span>
+                <span className="font-mono-tag text-[10px] tracking-[0.22em] text-foreground">{copy.corridor} - 01</span>
+                <span className="font-mono-tag text-[10px] tracking-[0.22em] text-signal">{copy.signal} - {copy.live}</span>
               </div>
             </div>
           </div>
@@ -87,9 +93,9 @@ const Corridors = () => {
 
             <div className="mt-10 grid grid-cols-3 gap-px bg-hairline border border-hairline">
               {[
-                { v: "Mining", l: "Sector" },
-                { v: "Active", l: "Status" },
-                { v: "Q-aligned", l: "Counterparties" },
+                { v: copy.mining, l: copy.sector },
+                { v: copy.active, l: copy.status },
+                { v: copy.qAligned, l: copy.counterparties },
               ].map((s) => (
                 <div key={s.l} className="bg-background p-5">
                   <p className="font-serif-display text-lg">{s.v}</p>
@@ -105,7 +111,7 @@ const Corridors = () => {
       <Section className="border-t border-hairline">
         <div className="grid md:grid-cols-12 gap-10 mb-12">
           <div className="md:col-span-5">
-            <SectionEyebrow>Emerging</SectionEyebrow>
+            <SectionEyebrow>{copy.emerging}</SectionEyebrow>
             <SectionTitle>{t("cor.future.title")}</SectionTitle>
           </div>
           <div className="md:col-span-7 self-end">
@@ -123,9 +129,9 @@ const Corridors = () => {
                 <img src={c.img} alt="" loading="lazy" className="w-full h-full object-cover opacity-70 group-hover:opacity-90" />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
                 <div className="absolute top-5 left-5 right-5 flex items-center justify-between">
-                  <span className="font-mono-tag text-[10px] tracking-[0.22em] text-foreground/90">CORRIDOR · {c.idx}</span>
+                  <span className="font-mono-tag text-[10px] tracking-[0.22em] text-foreground/90">{copy.corridor} - {c.idx}</span>
                   <span className="font-mono-tag text-[10px] tracking-[0.22em] text-muted-foreground border border-foreground/30 px-2 py-0.5">
-                    Pre-Active
+                    {copy.preActive}
                   </span>
                 </div>
               </div>
@@ -140,7 +146,7 @@ const Corridors = () => {
 
       {/* CTA */}
       <Section className="border-t border-hairline text-center">
-        <p className="eyebrow mb-6">— Structured visibility</p>
+        <p className="eyebrow mb-6">- {copy.visibility}</p>
         <h2 className="font-serif-display text-4xl md:text-5xl tracking-tight">{t("cor.cta")}</h2>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-5">
           <Link to="/engage" className="btn-primary group">
@@ -148,7 +154,7 @@ const Corridors = () => {
             <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
           </Link>
           <Link to="/sectors" className="btn-ghost">
-            {t("nav.sectors")}
+            {copy.sectors}
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>

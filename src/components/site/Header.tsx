@@ -7,7 +7,7 @@ import { useI18n } from "@/i18n/I18nProvider";
 import { ArrowRight, Menu, X } from "lucide-react";
 
 export const Header = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -18,13 +18,21 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const navCopy = {
+    en: { platform: "Platform", services: "Services", sectors: "Sectors", method: "Method", insights: "Insights", network: "Network", engage: "Engage", menu: "Menu" },
+    fr: { platform: "Plateforme", services: "Services", sectors: "Secteurs", method: "Methode", insights: "Analyses", network: "Reseau", engage: "Engagement", menu: "Menu" },
+    zh: { platform: "平台", services: "服务", sectors: "行业", method: "方法", insights: "洞察", network: "网络", engage: "联系", menu: "菜单" },
+    ar: { platform: "المنصة", services: "الخدمات", sectors: "القطاعات", method: "المنهجية", insights: "الرؤى", network: "الشبكة", engage: "التواصل", menu: "القائمة" },
+  }[lang];
+
   const navItems = [
-    { to: "/platform", label: t("nav.platform") },
-    { to: "/sectors", label: t("nav.sectors") },
-    { to: "/corridors", label: t("nav.corridors") },
-    { to: "/why-heliogate", label: "Why" },
-    { to: "/insights", label: t("nav.insights") },
-    { to: "/engage", label: t("nav.engage") },
+    { to: "/platform", label: navCopy.platform },
+    { to: "/services", label: navCopy.services },
+    { to: "/sectors", label: navCopy.sectors },
+    { to: "/methodology", label: navCopy.method },
+    { to: "/insights", label: navCopy.insights },
+    { to: "/network", label: navCopy.network },
+    { to: "/engage", label: navCopy.engage },
   ];
 
   return (
@@ -32,7 +40,7 @@ export const Header = () => {
       <div className="container-wide flex items-center justify-between h-16 md:h-20">
         <Logo />
 
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-7">
           {navItems.map(item => (
             <NavLink
               key={item.to}
@@ -114,7 +122,7 @@ export const Header = () => {
                     <LangSwitcher />
                     <ThemeToggle />
                   </div>
-                  <span className="eyebrow text-[10px]">Menu</span>
+                  <span className="eyebrow text-[10px]">{navCopy.menu}</span>
                 </div>
                 <NavLink
                   to="/engage"
