@@ -4,8 +4,12 @@ import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section
 import { executionSteps } from "@/lib/siteContent";
 import { localizeExecutionStep, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
-import world from "@/assets/world-corridors.jpg";
 import { ArrowRight, ShieldCheck } from "lucide-react";
+
+const world = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80";
+const validationCore = "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80";
+const mineSignal = "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=80";
+const logisticsReview = "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80";
 
 const Methodology = () => {
   const { lang } = useI18n();
@@ -46,6 +50,17 @@ const Methodology = () => {
           <p className="text-lg text-muted-foreground leading-relaxed">
             {copy.methodLead}
           </p>
+        </div>
+      </div>
+      <div className="mb-10 grid gap-4 md:grid-cols-3">
+        <div className="img-frame aspect-[16/9] border border-hairline">
+          <img src={validationCore} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+        </div>
+        <div className="img-frame aspect-[16/9] border border-hairline">
+          <img src={mineSignal} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+        </div>
+        <div className="img-frame aspect-[16/9] border border-hairline">
+          <img src={logisticsReview} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
         </div>
       </div>
       <div className="grid md:grid-cols-3 gap-px border border-hairline bg-hairline">

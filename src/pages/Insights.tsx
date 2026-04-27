@@ -6,7 +6,13 @@ import { resources } from "@/lib/siteContent";
 import { localizeResource, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
 import { ArrowUpRight, Search } from "lucide-react";
-import topo from "@/assets/intel-topo.jpg";
+
+const topo = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80";
+const corridorImage = "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80";
+const mapImage = "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1600&q=80";
+const signalImage = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80";
+const marketReviewImage = "https://images.unsplash.com/photo-1551281044-8b0a0e8f5f5c?auto=format&fit=crop&w=1600&q=80";
+const operationsImage = "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80";
 
 const Insights = () => {
   const { lang } = useI18n();
@@ -24,6 +30,7 @@ const Insights = () => {
       [item.cat, item.sector, item.title, item.date].some((value) => value.toLowerCase().includes(q)),
     );
   }, [localizedResources, query]);
+  const cardImages = [corridorImage, mapImage, signalImage, marketReviewImage, operationsImage];
 
   return (
     <Layout>
@@ -58,8 +65,11 @@ const Insights = () => {
         </label>
 
         <div className="grid md:grid-cols-2 gap-px bg-hairline border border-hairline">
-          {filtered.map((it) => (
+          {filtered.map((it, index) => (
             <article key={`${it.cat}-${it.title}`} className="bg-background p-8 md:p-10 group hover:bg-card transition-colors">
+              <div className="img-frame mb-7 aspect-[16/9] border border-hairline">
+                <img src={cardImages[index % cardImages.length]} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+              </div>
               <div className="flex items-center justify-between gap-4 mb-8">
                 <span className="font-mono-tag text-[10px] uppercase tracking-[0.22em] text-muted-foreground border border-hairline px-2 py-1">
                   {it.cat}

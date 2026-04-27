@@ -4,8 +4,13 @@ import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section
 import { serviceGroups } from "@/lib/siteContent";
 import { localizeService, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
-import architecture from "@/assets/platform-architecture.jpg";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+
+const architecture = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80";
+const transactionImage = "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80";
+const digitalImage = "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1600&q=80";
+const fundImage = "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1600&q=80";
+const operationsImage = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80";
 
 const Services = () => {
   const { lang } = useI18n();
@@ -39,7 +44,15 @@ const Services = () => {
           <SectionEyebrow>{copy.servicesGroup}</SectionEyebrow>
           <SectionTitle>{copy.servicesIndexTitle}</SectionTitle>
         </div>
-        <div className="md:col-span-8 border border-hairline">
+        <div className="md:col-span-8 space-y-6">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[transactionImage, digitalImage, fundImage, operationsImage].map((image, index) => (
+              <div key={index} className="img-frame aspect-[4/3] border border-hairline">
+                <img src={image} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+              </div>
+            ))}
+          </div>
+          <div className="border border-hairline">
           {localizedServices.map((group, index) => {
             const Icon = group.icon;
             return (
@@ -71,6 +84,7 @@ const Services = () => {
               </Link>
             );
           })}
+          </div>
         </div>
       </div>
     </Section>
