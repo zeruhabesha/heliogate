@@ -4,10 +4,11 @@ import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section
 import { executionSteps } from "@/lib/siteContent";
 import { localizeExecutionStep, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
-import world from "@/assets/methodology-gates-map.jpg";
-import validationCore from "@/assets/home-validation-core.jpg";
-import mineSignal from "@/assets/home-mining-signal-color.jpg";
 import { ArrowRight, ShieldCheck } from "lucide-react";
+
+const world = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80";
+const validationCore = "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80";
+const mineSignal = "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=80";
 
 const Methodology = () => {
   const { lang } = useI18n();

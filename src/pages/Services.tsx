@@ -4,11 +4,12 @@ import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section
 import { serviceGroups } from "@/lib/siteContent";
 import { localizeService, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
-import architecture from "@/assets/platform-architecture.jpg";
-import transactionImage from "@/assets/service-transaction-structuring.jpg";
-import digitalImage from "@/assets/service-ict-digital.jpg";
-import fundImage from "@/assets/service-financial-fund.jpg";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+
+const architecture = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80";
+const transactionImage = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80";
+const digitalImage = "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1600&q=80";
+const fundImage = "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1600&q=80";
 
 const Services = () => {
   const { lang } = useI18n();

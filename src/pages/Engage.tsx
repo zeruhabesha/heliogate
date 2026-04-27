@@ -4,9 +4,10 @@ import { Section, SectionEyebrow } from "@/components/site/Section";
 import { useI18n } from "@/i18n/I18nProvider";
 import { toast } from "sonner";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import room from "@/assets/engage-meeting-color.jpg";
-import corridorMap from "@/assets/home-route-map-color.jpg";
-import intelligenceDesk from "@/assets/home-intelligence-color.jpg";
+
+const room = "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80";
+const corridorMap = "https://images.unsplash.com/photo-1494412685616-a5d310fbb07d?auto=format&fit=crop&w=1600&q=80";
+const intelligenceDesk = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80";
 
 const Engage = () => {
   const { t, lang } = useI18n();

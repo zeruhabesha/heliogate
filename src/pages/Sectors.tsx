@@ -5,10 +5,11 @@ import { sectors } from "@/lib/siteContent";
 import { localizeSector } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import mineral from "@/assets/sectors-hero-color.jpg";
-import miningImage from "@/assets/sector-mining.jpg";
-import tradeImage from "@/assets/sector-trade.jpg";
-import infraImage from "@/assets/sector-infrastructure.jpg";
+
+const mineral = "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?auto=format&fit=crop&w=1600&q=80";
+const miningImage = "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1600&q=80";
+const tradeImage = "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80";
+const infraImage = "https://images.unsplash.com/photo-1485081669829-bacb8c7bb1f3?auto=format&fit=crop&w=1600&q=80";
 
 const signalClass = {
   Active: "text-signal",

@@ -4,10 +4,11 @@ import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section
 import { impactMetrics, partnerTypes } from "@/lib/siteContent";
 import { localizeMetric, localizePartner, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
-import room from "@/assets/network-partner-table.jpg";
-import corridorSignal from "@/assets/home-corridor-signal-wide.jpg";
-import institutionCrane from "@/assets/home-institution-crane-wide.jpg";
 import { ArrowRight, Leaf, Users } from "lucide-react";
+
+const room = "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80";
+const corridorSignal = "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1600&q=80";
+const institutionCrane = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80";
 
 const Network = () => {
   const { lang } = useI18n();
