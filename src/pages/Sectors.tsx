@@ -5,10 +5,10 @@ import { sectors } from "@/lib/siteContent";
 import { localizeSector } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import mineral from "@/assets/sectors-spectrum-new.svg";
-import miningImage from "@/assets/sectors-mining-grid-new.svg";
-import tradeImage from "@/assets/sectors-trade-lanes-new.svg";
-import infraImage from "@/assets/sectors-infra-frame-new.svg";
+import mineral from "@/assets/sectors-hero-color.jpg";
+import miningImage from "@/assets/sector-mining.jpg";
+import tradeImage from "@/assets/sector-trade.jpg";
+import infraImage from "@/assets/sector-infrastructure.jpg";
 
 const signalClass = {
   Active: "text-signal",

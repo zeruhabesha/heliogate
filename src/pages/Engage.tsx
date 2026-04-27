@@ -4,9 +4,9 @@ import { Section, SectionEyebrow } from "@/components/site/Section";
 import { useI18n } from "@/i18n/I18nProvider";
 import { toast } from "sonner";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import room from "@/assets/engage-corridor-grid-new.svg";
-import corridorMap from "@/assets/engage-intelligence-brief-new.svg";
-import intelligenceDesk from "@/assets/services-execution-suite-new.svg";
+import room from "@/assets/engage-meeting-color.jpg";
+import corridorMap from "@/assets/home-route-map-color.jpg";
+import intelligenceDesk from "@/assets/home-intelligence-color.jpg";
 
 const Engage = () => {
   const { t, lang } = useI18n();

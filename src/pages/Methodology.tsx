@@ -4,9 +4,9 @@ import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section
 import { executionSteps } from "@/lib/siteContent";
 import { localizeExecutionStep, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
-import world from "@/assets/methodology-gateflow-new.svg";
-import validationCore from "@/assets/methodology-assurance-grid-new.svg";
-import mineSignal from "@/assets/insights-signal-lab-new.svg";
+import world from "@/assets/methodology-gates-map.jpg";
+import validationCore from "@/assets/home-validation-core.jpg";
+import mineSignal from "@/assets/home-mining-signal-color.jpg";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 
 const Methodology = () => {

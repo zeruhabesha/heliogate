@@ -4,9 +4,9 @@ import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section
 import { impactMetrics, partnerTypes } from "@/lib/siteContent";
 import { localizeMetric, localizePartner, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
-import room from "@/assets/network-operations-matrix-new.svg";
-import corridorSignal from "@/assets/network-alliance-spectrum-new.svg";
-import institutionCrane from "@/assets/engage-corridor-grid-new.svg";
+import room from "@/assets/network-partner-table.jpg";
+import corridorSignal from "@/assets/home-corridor-signal-wide.jpg";
+import institutionCrane from "@/assets/home-institution-crane-wide.jpg";
 import { ArrowRight, Leaf, Users } from "lucide-react";
 
 const Network = () => {

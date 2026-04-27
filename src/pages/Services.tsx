@@ -4,10 +4,10 @@ import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section
 import { serviceGroups } from "@/lib/siteContent";
 import { localizeService, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
-import architecture from "@/assets/services-execution-suite-new.svg";
-import transactionImage from "@/assets/services-execution-suite-new.svg";
-import digitalImage from "@/assets/services-digital-grid-new.svg";
-import fundImage from "@/assets/services-capital-flow-new.svg";
+import architecture from "@/assets/platform-architecture.jpg";
+import transactionImage from "@/assets/service-transaction-structuring.jpg";
+import digitalImage from "@/assets/service-ict-digital.jpg";
+import fundImage from "@/assets/service-financial-fund.jpg";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 const Services = () => {

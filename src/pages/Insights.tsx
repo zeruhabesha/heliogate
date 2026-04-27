@@ -6,10 +6,10 @@ import { resources } from "@/lib/siteContent";
 import { localizeResource, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
 import { ArrowUpRight, Search } from "lucide-react";
-import topo from "@/assets/insights-signal-lab-new.svg";
-import corridorImage from "@/assets/engage-intelligence-brief-new.svg";
-import mapImage from "@/assets/methodology-assurance-grid-new.svg";
-import signalImage from "@/assets/services-execution-suite-new.svg";
+import topo from "@/assets/insights-research-desk.jpg";
+import corridorImage from "@/assets/corridor-industrial-route.jpg";
+import mapImage from "@/assets/home-route-map-color.jpg";
+import signalImage from "@/assets/home-mining-signal-color.jpg";
 
 const Insights = () => {
   const { lang } = useI18n();
