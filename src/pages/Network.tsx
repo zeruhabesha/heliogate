@@ -4,7 +4,9 @@ import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section
 import { impactMetrics, partnerTypes } from "@/lib/siteContent";
 import { localizeMetric, localizePartner, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
-import room from "@/assets/engage-room.jpg";
+import room from "@/assets/network-partner-table.jpg";
+import corridorSignal from "@/assets/home-corridor-signal-wide.jpg";
+import institutionCrane from "@/assets/home-institution-crane-wide.jpg";
 import { ArrowRight, Leaf, Users } from "lucide-react";
 
 const Network = () => {
@@ -32,6 +34,14 @@ const Network = () => {
     </section>
 
     <Section>
+      <div className="mb-10 grid gap-4 md:grid-cols-2">
+        <div className="img-frame aspect-[21/10] border border-hairline">
+          <img src={corridorSignal} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+        </div>
+        <div className="img-frame aspect-[21/10] border border-hairline">
+          <img src={institutionCrane} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+        </div>
+      </div>
       <div className="grid md:grid-cols-4 gap-px bg-hairline border border-hairline">
         {localizedMetrics.map((metric) => (
           <div key={metric.label} className="bg-background p-8">
