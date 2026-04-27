@@ -9,8 +9,16 @@ import heroVideo from "@/assets/hero-loop.mp4.asset.json";
 import mining from "@/assets/sector-mining.jpg";
 import trade from "@/assets/sector-trade.jpg";
 import infra from "@/assets/sector-infrastructure.jpg";
-import topo from "@/assets/intel-topo.jpg";
-import mineral from "@/assets/detail-mineral.jpg";
+import homeIntroCrane from "@/assets/home-intro-crane-color.jpg";
+import homeTradePort from "@/assets/home-trade-port-color.jpg";
+import homeActiveMineDetail from "@/assets/home-active-mine-detail.jpg";
+import homeValidationCore from "@/assets/home-validation-core.jpg";
+import homeMiningSignal from "@/assets/home-mining-signal-color.jpg";
+import homeCorridorSignal from "@/assets/home-corridor-signal-wide.jpg";
+import homeIntelligence from "@/assets/home-intelligence-color.jpg";
+import homeRouteMap from "@/assets/home-route-map-color.jpg";
+import homeInstitutionCrane from "@/assets/home-institution-crane-wide.jpg";
+import homeTrustLogistics from "@/assets/home-trust-logistics-wide.jpg";
 import world from "@/assets/world-corridors.jpg";
 import { ArrowRight, ArrowUpRight, ArrowDown } from "lucide-react";
 import { Counter } from "@/components/site/Counter";
@@ -100,6 +108,19 @@ const Index = () => {
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
             <SectionEyebrow>{t("intro.eyebrow")}</SectionEyebrow>
+            <div className="mt-10 grid grid-cols-5 gap-3">
+              <div className="img-frame col-span-3 aspect-[4/5] border border-hairline">
+                <img src={homeIntroCrane} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
+              </div>
+              <div className="col-span-2 space-y-3 pt-10">
+                <div className="img-frame aspect-square border border-hairline">
+                  <img src={homeTradePort} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
+                </div>
+                <div className="img-frame aspect-[4/5] border border-hairline">
+                  <img src={homeActiveMineDetail} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="md:col-span-8 space-y-8">
             <p className="font-serif-display text-3xl md:text-4xl leading-[1.2] tracking-tight">{t("intro.p1")}</p>
@@ -120,7 +141,7 @@ const Index = () => {
             <SectionTitle>{t("what.title")}</SectionTitle>
             <p className="mt-8 text-base text-muted-foreground leading-relaxed max-w-md">{t("what.lead")}</p>
             <div className="mt-10 img-frame aspect-[4/5] hidden md:block">
-              <img src={mineral} alt="" loading="lazy" className="w-full h-full object-cover opacity-80" />
+              <img src={homeValidationCore} alt="" loading="lazy" className="w-full h-full object-cover opacity-100 saturate-125 contrast-105" />
             </div>
           </div>
           <div className="md:col-span-7 grid gap-px bg-hairline border border-hairline">
@@ -185,9 +206,9 @@ const Index = () => {
 
       {/* FLOW with corridor map background */}
       <section className="relative border-t border-hairline py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img src={world} alt="" loading="lazy" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-background" />
+        <div className="absolute inset-0 opacity-35">
+          <img src={world} alt="" loading="lazy" className="w-full h-full object-cover saturate-125 contrast-105" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/35 to-background/70" />
         </div>
         <div className="relative container-wide">
           <SectionEyebrow>{copy.procEyebrow}</SectionEyebrow>
@@ -220,8 +241,8 @@ const Index = () => {
               <span className="eyebrow text-foreground">{t("active.status")}</span>
             </div>
             <div className="mt-10 img-frame aspect-[4/5]">
-              <img src={mining} alt="" loading="lazy" className="w-full h-full object-cover opacity-80" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              <img src={homeMiningSignal} alt="" loading="lazy" className="w-full h-full object-cover opacity-100 saturate-125 contrast-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/35 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
                 <span className="font-mono-tag text-[10px] tracking-[0.22em] text-foreground">{copy.corridor} - 01</span>
                 <span className="font-mono-tag text-[10px] tracking-[0.22em] text-signal">{copy.signal} - {copy.live}</span>
@@ -244,8 +265,8 @@ const Index = () => {
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
             <div className="mt-12 img-frame aspect-[16/7] border border-hairline">
-              <img src={world} alt="" loading="lazy" className="w-full h-full object-cover opacity-75" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              <img src={homeCorridorSignal} alt="" loading="lazy" className="w-full h-full object-cover opacity-100 saturate-125 contrast-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/35 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
                 <span className="font-mono-tag text-[10px] tracking-[0.22em] text-foreground">{copy.corridorMap}</span>
                 <span className="font-mono-tag text-[10px] tracking-[0.22em] text-signal">{copy.active}</span>
@@ -268,7 +289,7 @@ const Index = () => {
 
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5 img-frame aspect-[4/5]">
-            <img src={topo} alt="" loading="lazy" className="w-full h-full object-cover opacity-80" />
+            <img src={homeIntelligence} alt="" loading="lazy" className="w-full h-full object-cover opacity-100 saturate-125 contrast-105" />
           </div>
           <div className="md:col-span-7 border-t border-hairline">
             {[
@@ -295,6 +316,16 @@ const Index = () => {
                 </div>
               </div>
             ))}
+            <div className="grid grid-cols-2 gap-px bg-hairline border-x border-b border-hairline">
+              <div className="img-frame aspect-[16/9]">
+                <img src={homeRouteMap} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
+              </div>
+              <div className="img-frame aspect-[16/9]">
+                <img src={homeInstitutionCrane} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
+              </div>
+            </div>
           </div>
         </div>
       </Section>
@@ -313,6 +344,14 @@ const Index = () => {
               <Stat value="12+" label={copy.jurisdictions} />
               <Stat value="100%" label={copy.validated} />
               <Stat value="1:1" label={copy.engagement} />
+            </div>
+            <div className="mt-8 img-frame aspect-[21/7] border border-hairline">
+              <img src={homeTrustLogistics} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
+              <div className="absolute inset-0 bg-gradient-to-r from-background/35 via-transparent to-background/10" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
+                <span className="font-mono-tag text-[10px] uppercase tracking-[0.22em] text-foreground">{copy.corridor}</span>
+                <span className="font-mono-tag text-[10px] uppercase tracking-[0.22em] text-signal">{copy.structuring}</span>
+              </div>
             </div>
           </div>
         </div>

@@ -3,6 +3,8 @@ import { Layout } from "@/components/site/Layout";
 import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section";
 import { useI18n } from "@/i18n/I18nProvider";
 import architecture from "@/assets/platform-architecture.jpg";
+import identityCrane from "@/assets/platform-identity-crane.jpg";
+import activeExecutionMine from "@/assets/active-execution-mine.jpg";
 import topo from "@/assets/intel-topo.jpg";
 import room from "@/assets/engage-room.jpg";
 import { impactMetrics, values } from "@/lib/siteContent";
@@ -128,7 +130,7 @@ const Platform = () => {
             <SectionEyebrow>01 - {copy.identity}</SectionEyebrow>
             <SectionTitle>{t("plat.who.t")}</SectionTitle>
             <div className="mt-10 img-frame aspect-[4/5]">
-              <img src={architecture} alt="" loading="lazy" className="w-full h-full object-cover opacity-80" />
+              <img src={identityCrane} alt="" loading="lazy" className="w-full h-full object-cover opacity-80" />
             </div>
           </div>
           <div className="md:col-span-7 space-y-6 md:pt-2">
@@ -141,6 +143,14 @@ const Platform = () => {
                   <p className="mt-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{s.l}</p>
                 </div>
               ))}
+            </div>
+            <div className="img-frame aspect-[21/8] border border-hairline">
+              <img src={activeExecutionMine} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
+              <div className="absolute inset-0 bg-gradient-to-r from-background/20 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
+                <span className="font-mono-tag text-[10px] uppercase tracking-[0.22em] text-foreground">{copy.approach}</span>
+                <span className="font-mono-tag text-[10px] uppercase tracking-[0.22em] text-signal">{copy.applied}</span>
+              </div>
             </div>
           </div>
         </div>

@@ -24,6 +24,12 @@ import mineral from "@/assets/detail-mineral.jpg";
 import room from "@/assets/engage-room.jpg";
 import trade from "@/assets/sector-trade.jpg";
 import infra from "@/assets/sector-infrastructure.jpg";
+import serviceTransaction from "@/assets/service-transaction-structuring.jpg";
+import serviceConstruction from "@/assets/service-construction-turnkey.jpg";
+import serviceIct from "@/assets/service-ict-digital.jpg";
+import serviceEducation from "@/assets/service-education-software.jpg";
+import serviceFacilities from "@/assets/service-facilities-security.jpg";
+import serviceFinancial from "@/assets/service-financial-fund.jpg";
 
 export type Signal = "Active" | "Emerging" | "Future";
 
@@ -167,7 +173,7 @@ export const serviceGroups: ServiceGroup[] = [
     slug: "cross-border-transaction-structuring",
     title: "Cross-Border Transaction Structuring",
     icon: Globe2,
-    image: corridor,
+    image: serviceTransaction,
     summary: "End-to-end transaction architecture for cross-border opportunities where counterparties, documentation, capital, route logic, and regulatory conditions must align before execution.",
     items: ["Opportunity intake and qualification", "Counterparty validation", "Deal architecture and documentation sequence", "Execution governance and stakeholder alignment"],
     overview:
@@ -186,7 +192,7 @@ export const serviceGroups: ServiceGroup[] = [
     slug: "construction-electromechanical-turnkeys",
     title: "Construction & Electromechanical Turnkeys",
     icon: HardHat,
-    image: infra,
+    image: serviceConstruction,
     summary: "Structured coordination for turnkey construction, MEP, electromechanical, industrial, and infrastructure-linked packages from design through commissioning.",
     items: ["Design and procurement coordination", "Installation and commissioning pathways", "Vendor, EPC, and operator alignment", "Project controls and handover readiness"],
     overview:
@@ -205,7 +211,7 @@ export const serviceGroups: ServiceGroup[] = [
     slug: "ict-consultancy-digital-solutions",
     title: "ICT Consultancy & Digital Solutions",
     icon: Network,
-    image: architecture,
+    image: serviceIct,
     summary: "Digital infrastructure, telecom systems, IoT, software platforms, fintech/payment rails, and e-government solution design for corridor operations.",
     items: ["Telecom and IoT systems", "Software development and enterprise platforms", "Fintech and digital payment solutions", "E-government and reporting systems"],
     overview:
@@ -224,7 +230,7 @@ export const serviceGroups: ServiceGroup[] = [
     slug: "education-sector-software",
     title: "Education-Sector Software",
     icon: BookOpen,
-    image: room,
+    image: serviceEducation,
     summary: "Learning platforms, school operations systems, digital content workflows, reporting tools, and implementation support for education institutions.",
     items: ["Learning management systems", "School operations platforms", "Assessment and content workflows", "Implementation and training support"],
     overview:
@@ -243,7 +249,7 @@ export const serviceGroups: ServiceGroup[] = [
     slug: "facilities-security-management",
     title: "Facilities & Security Management",
     icon: ShieldCheck,
-    image: mineral,
+    image: serviceFacilities,
     summary: "Facilities operations, premium security coordination, SOPs, workforce controls, compliance reporting, and service-level management for strategic assets.",
     items: ["Facilities operations frameworks", "Security coordination and SOPs", "Service-level reporting", "Vendor and workforce management"],
     overview:
@@ -262,7 +268,7 @@ export const serviceGroups: ServiceGroup[] = [
     slug: "financial-fund-management",
     title: "Financial & Fund Management",
     icon: Banknote,
-    image: trade,
+    image: serviceFinancial,
     summary: "Investment advisory, fund structuring, capital mobilization, payment coordination, reporting, and risk controls tied to validated opportunities.",
     items: ["Investment advisory", "Fund and participation structuring", "Capital mobilization support", "Payment and settlement coordination"],
     overview:

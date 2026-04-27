@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# HelioGate Investment Group
 
-TODO: Document your project here
+Structured cross-border execution platform website for HelioGate Investment Group.

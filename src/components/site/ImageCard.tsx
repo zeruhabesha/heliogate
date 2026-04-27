@@ -22,8 +22,8 @@ export const ImageCard = ({
 }) => (
   <Link to={to} className="group block tilt-card">
     <div className={`img-frame ${tall ? "aspect-[4/5]" : "aspect-[16/10]"}`}>
-      <img src={image} alt="" loading="lazy" className="w-full h-full object-cover opacity-70 group-hover:opacity-90" />
-      <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+      <img src={image} alt="" loading="lazy" className="w-full h-full object-cover opacity-100 saturate-125 contrast-105" />
+      <div className="absolute inset-0 bg-gradient-to-t from-card/65 via-card/10 to-transparent" />
       <div className="absolute top-5 left-5 right-5 flex items-center justify-between">
         <span className="font-mono-tag text-[10px] tracking-[0.22em] text-foreground/80">{index}</span>
         <span className="eyebrow">{eyebrow}</span>

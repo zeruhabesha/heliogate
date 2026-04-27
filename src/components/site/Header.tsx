@@ -18,6 +18,13 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   const navCopy = {
     en: { platform: "Platform", services: "Services", sectors: "Sectors", method: "Method", insights: "Insights", network: "Network", engage: "Engage", menu: "Menu" },
     fr: { platform: "Plateforme", services: "Services", sectors: "Secteurs", method: "Methode", insights: "Analyses", network: "Reseau", engage: "Engagement", menu: "Menu" },
@@ -36,8 +43,9 @@ export const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${scrolled ? "bg-background/85 backdrop-blur-md border-b border-hairline" : "bg-transparent"}`}>
-      <div className="container-wide flex items-center justify-between h-16 md:h-20">
+    <>
+    <header className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${scrolled || open ? "bg-background/95 backdrop-blur-md border-b border-hairline" : "bg-transparent"}`}>
+      <div className="container-wide flex h-16 items-center justify-between gap-3 md:h-20">
         <Logo />
 
         <nav className="hidden md:flex items-center gap-7">
@@ -69,30 +77,24 @@ export const Header = () => {
         </div>
 
         <button
-          onClick={() => setOpen(true)}
+          onClick={() => setOpen((value) => !value)}
           className="md:hidden flex h-10 w-10 items-center justify-center border border-hairline text-foreground transition-colors hover:border-foreground"
-          aria-label="Open menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
         >
-          <Menu className="w-5 h-5" />
+          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
+    </header>
 
-      {/* Mobile drawer */}
-      {open && (
-        <div className="fixed inset-0 z-[70] bg-background md:hidden animate-fade-in">
-          <div className="flex h-full flex-col">
-          <div className="container-wide flex h-20 items-center justify-between border-b border-hairline">
-            <Logo />
-            <button
-              onClick={() => setOpen(false)}
-              aria-label="Close menu"
-              className="flex h-10 w-10 items-center justify-center border border-hairline text-foreground transition-colors hover:border-foreground"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          <div className="container-wide flex min-h-0 flex-1 flex-col overflow-y-auto py-8">
+    {/* Mobile drawer */}
+    {open && (
+      <div
+        id="mobile-navigation"
+        className="fixed inset-x-0 bottom-0 top-16 z-[60] bg-background md:hidden"
+      >
+        <div className="container-wide flex h-full min-h-0 flex-col overflow-y-auto py-5">
             <nav className="border-t border-hairline">
               {navItems.map((item, index) => (
                 <NavLink
@@ -105,7 +107,7 @@ export const Header = () => {
                     }`
                   }
                 >
-                  <span className="font-serif-display text-[34px] leading-none tracking-tight">
+                  <span className="font-serif-display text-[clamp(2rem,10vw,3rem)] leading-none tracking-tight">
                     {item.label}
                   </span>
                   <span className="font-mono-tag text-[10px] text-muted-foreground">
@@ -134,10 +136,9 @@ export const Header = () => {
                 </NavLink>
               </div>
             </div>
-          </div>
-          </div>
         </div>
-      )}
-    </header>
+      </div>
+    )}
+    </>
   );
 };

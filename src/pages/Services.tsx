@@ -56,8 +56,13 @@ const Services = () => {
                   <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{group.summary}</p>
                 </div>
                 <div className="img-frame hidden aspect-[16/9] md:col-span-3 md:block">
-                  <img src={group.image} alt="" loading="lazy" className="h-full w-full object-cover opacity-70 group-hover:opacity-90" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                  <img
+                    src={group.image}
+                    alt=""
+                    loading="lazy"
+                    className="h-full w-full object-cover opacity-100 saturate-125 contrast-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/15 via-transparent to-transparent" />
                 </div>
                 <div className="flex items-start justify-between md:col-span-2 md:justify-end md:gap-6">
                   <span className="font-mono-tag text-[10px] text-muted-foreground">0{index + 1}</span>
