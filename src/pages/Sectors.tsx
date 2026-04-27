@@ -5,7 +5,10 @@ import { sectors } from "@/lib/siteContent";
 import { localizeSector } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import mineral from "@/assets/detail-mineral.jpg";
+import mineral from "@/assets/sectors-spectrum-new.svg";
+import miningImage from "@/assets/sectors-mining-grid-new.svg";
+import tradeImage from "@/assets/sectors-trade-lanes-new.svg";
+import infraImage from "@/assets/sectors-infra-frame-new.svg";
 
 const signalClass = {
   Active: "text-signal",
@@ -32,6 +35,7 @@ const Sectors = () => {
   const labels = signalLabels[lang] ?? signalLabels.en;
   const page = pageCopy[lang] ?? pageCopy.en;
   const localizedSectors = sectors.map((sector) => localizeSector(sector, lang));
+  const sectorImages = [miningImage, tradeImage, infraImage];
 
   return (
     <Layout>
@@ -99,6 +103,9 @@ const Sectors = () => {
                 <p className="mt-6 text-sm text-muted-foreground leading-relaxed">{sector.opportunity}</p>
               </div>
               <div className="md:col-span-8">
+                <div className="img-frame mb-6 aspect-[21/8] border border-hairline">
+                  <img src={sectorImages[index % sectorImages.length]} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+                </div>
                 <div className="grid md:grid-cols-2 gap-px bg-hairline border border-hairline">
                   {sector.offerings.map((offering, offeringIndex) => (
                     <div key={offering} className="bg-background p-6">

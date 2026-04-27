@@ -4,7 +4,9 @@ import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section
 import { executionSteps } from "@/lib/siteContent";
 import { localizeExecutionStep, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
-import world from "@/assets/world-corridors.jpg";
+import world from "@/assets/methodology-gateflow-new.svg";
+import validationCore from "@/assets/methodology-assurance-grid-new.svg";
+import mineSignal from "@/assets/insights-signal-lab-new.svg";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 
 const Methodology = () => {
@@ -46,6 +48,14 @@ const Methodology = () => {
           <p className="text-lg text-muted-foreground leading-relaxed">
             {copy.methodLead}
           </p>
+        </div>
+      </div>
+      <div className="mb-10 grid gap-4 md:grid-cols-2">
+        <div className="img-frame aspect-[16/9] border border-hairline">
+          <img src={validationCore} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+        </div>
+        <div className="img-frame aspect-[16/9] border border-hairline">
+          <img src={mineSignal} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
         </div>
       </div>
       <div className="grid md:grid-cols-3 gap-px border border-hairline bg-hairline">

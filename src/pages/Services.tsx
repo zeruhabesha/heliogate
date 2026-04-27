@@ -4,7 +4,10 @@ import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section
 import { serviceGroups } from "@/lib/siteContent";
 import { localizeService, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
-import architecture from "@/assets/platform-architecture.jpg";
+import architecture from "@/assets/services-execution-suite-new.svg";
+import transactionImage from "@/assets/services-execution-suite-new.svg";
+import digitalImage from "@/assets/services-digital-grid-new.svg";
+import fundImage from "@/assets/services-capital-flow-new.svg";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 const Services = () => {
@@ -39,7 +42,15 @@ const Services = () => {
           <SectionEyebrow>{copy.servicesGroup}</SectionEyebrow>
           <SectionTitle>{copy.servicesIndexTitle}</SectionTitle>
         </div>
-        <div className="md:col-span-8 border border-hairline">
+        <div className="md:col-span-8 space-y-6">
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[transactionImage, digitalImage, fundImage].map((image, index) => (
+              <div key={index} className="img-frame aspect-[4/3] border border-hairline">
+                <img src={image} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+              </div>
+            ))}
+          </div>
+          <div className="border border-hairline">
           {localizedServices.map((group, index) => {
             const Icon = group.icon;
             return (
@@ -71,6 +82,7 @@ const Services = () => {
               </Link>
             );
           })}
+          </div>
         </div>
       </div>
     </Section>
