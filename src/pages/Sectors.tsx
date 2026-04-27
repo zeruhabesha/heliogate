@@ -5,7 +5,11 @@ import { sectors } from "@/lib/siteContent";
 import { localizeSector } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import mineral from "@/assets/detail-mineral.jpg";
+
+const mineral = "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?auto=format&fit=crop&w=1600&q=80";
+const miningImage = "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1600&q=80";
+const tradeImage = "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80";
+const infraImage = "https://images.unsplash.com/photo-1485081669829-bacb8c7bb1f3?auto=format&fit=crop&w=1600&q=80";
 
 const signalClass = {
   Active: "text-signal",
@@ -32,6 +36,7 @@ const Sectors = () => {
   const labels = signalLabels[lang] ?? signalLabels.en;
   const page = pageCopy[lang] ?? pageCopy.en;
   const localizedSectors = sectors.map((sector) => localizeSector(sector, lang));
+  const sectorImages = [miningImage, tradeImage, infraImage];
 
   return (
     <Layout>
@@ -99,6 +104,9 @@ const Sectors = () => {
                 <p className="mt-6 text-sm text-muted-foreground leading-relaxed">{sector.opportunity}</p>
               </div>
               <div className="md:col-span-8">
+                <div className="img-frame mb-6 aspect-[21/8] border border-hairline">
+                  <img src={sectorImages[index % sectorImages.length]} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+                </div>
                 <div className="grid md:grid-cols-2 gap-px bg-hairline border border-hairline">
                   {sector.offerings.map((offering, offeringIndex) => (
                     <div key={offering} className="bg-background p-6">

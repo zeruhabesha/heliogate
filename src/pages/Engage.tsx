@@ -4,7 +4,10 @@ import { Section, SectionEyebrow } from "@/components/site/Section";
 import { useI18n } from "@/i18n/I18nProvider";
 import { toast } from "sonner";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import room from "@/assets/engage-room.jpg";
+
+const room = "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80";
+const corridorMap = "https://images.unsplash.com/photo-1494412685616-a5d310fbb07d?auto=format&fit=crop&w=1600&q=80";
+const intelligenceDesk = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80";
 
 const Engage = () => {
   const { t, lang } = useI18n();
@@ -92,6 +95,14 @@ const Engage = () => {
 
       {/* Fast routes */}
       <Section>
+        <div className="mb-10 grid grid-cols-2 gap-4">
+          <div className="img-frame aspect-[16/10] border border-hairline">
+            <img src={corridorMap} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+          </div>
+          <div className="img-frame aspect-[16/10] border border-hairline">
+            <img src={intelligenceDesk} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+          </div>
+        </div>
         <SectionEyebrow>{copy.fastTitle}</SectionEyebrow>
         <div className="grid md:grid-cols-3 gap-px bg-hairline border border-hairline mt-6">
           {fast.map((c, i) => (
