@@ -11,6 +11,8 @@ const topo = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=
 const corridorImage = "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80";
 const mapImage = "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1600&q=80";
 const signalImage = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80";
+const marketReviewImage = "https://images.unsplash.com/photo-1551281044-8b0a0e8f5f5c?auto=format&fit=crop&w=1600&q=80";
+const operationsImage = "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80";
 
 const Insights = () => {
   const { lang } = useI18n();
@@ -28,7 +30,7 @@ const Insights = () => {
       [item.cat, item.sector, item.title, item.date].some((value) => value.toLowerCase().includes(q)),
     );
   }, [localizedResources, query]);
-  const cardImages = [corridorImage, mapImage, signalImage];
+  const cardImages = [corridorImage, mapImage, signalImage, marketReviewImage, operationsImage];
 
   return (
     <Layout>

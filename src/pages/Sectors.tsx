@@ -10,6 +10,8 @@ const mineral = "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?au
 const miningImage = "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1600&q=80";
 const tradeImage = "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80";
 const infraImage = "https://images.unsplash.com/photo-1485081669829-bacb8c7bb1f3?auto=format&fit=crop&w=1600&q=80";
+const sectorFutureOne = "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1600&q=80";
+const sectorFutureTwo = "https://images.unsplash.com/photo-1565636291291-294a95913217?auto=format&fit=crop&w=1600&q=80";
 
 const signalClass = {
   Active: "text-signal",
@@ -36,7 +38,7 @@ const Sectors = () => {
   const labels = signalLabels[lang] ?? signalLabels.en;
   const page = pageCopy[lang] ?? pageCopy.en;
   const localizedSectors = sectors.map((sector) => localizeSector(sector, lang));
-  const sectorImages = [miningImage, tradeImage, infraImage];
+  const sectorImages = [miningImage, tradeImage, infraImage, sectorFutureOne, sectorFutureTwo];
 
   return (
     <Layout>
