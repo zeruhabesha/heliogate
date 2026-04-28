@@ -11,7 +11,7 @@ import trade from "@/assets/sector-trade.jpg";
 import infra from "@/assets/sector-infrastructure.jpg";
 import homeTradePort from "@/assets/home-trade-port-color.jpg";
 import homeActiveMineDetail from "@/assets/home-active-mine-detail.jpg";
-import homeMiningSignal from "@/assets/home-mining-signal-color.jpg";
+import homeMiningSignal from "@/assets/hh.jpg";
 import homeCorridorSignal from "@/assets/home-corridor-signal-wide.jpg";
 import homeIntelligence from "@/assets/home-intelligence-color.jpg";
 import homeTrustLogistics from "@/assets/home-trust-logistics-wide.jpg";
