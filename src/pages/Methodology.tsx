@@ -10,6 +10,7 @@ const world = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto
 const validationCore = "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80";
 const mineSignal = "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=80";
 const logisticsReview = "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80";
+const governanceReview = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80";
 
 const Methodology = () => {
   const { lang } = useI18n();
@@ -52,7 +53,7 @@ const Methodology = () => {
           </p>
         </div>
       </div>
-      <div className="mb-10 grid gap-4 md:grid-cols-3">
+      <div className="mb-10 grid gap-4 md:grid-cols-4">
         <div className="img-frame aspect-[16/9] border border-hairline">
           <img src={validationCore} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
         </div>
@@ -61,6 +62,9 @@ const Methodology = () => {
         </div>
         <div className="img-frame aspect-[16/9] border border-hairline">
           <img src={logisticsReview} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+        </div>
+        <div className="img-frame aspect-[16/9] border border-hairline">
+          <img src={governanceReview} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
         </div>
       </div>
       <div className="grid md:grid-cols-3 gap-px border border-hairline bg-hairline">

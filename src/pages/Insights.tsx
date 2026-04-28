@@ -13,6 +13,7 @@ const mapImage = "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?a
 const signalImage = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80";
 const marketReviewImage = "https://images.unsplash.com/photo-1551281044-8b0a0e8f5f5c?auto=format&fit=crop&w=1600&q=80";
 const operationsImage = "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80";
+const trendImage = "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80";
 
 const Insights = () => {
   const { lang } = useI18n();
@@ -30,7 +31,7 @@ const Insights = () => {
       [item.cat, item.sector, item.title, item.date].some((value) => value.toLowerCase().includes(q)),
     );
   }, [localizedResources, query]);
-  const cardImages = [corridorImage, mapImage, signalImage, marketReviewImage, operationsImage];
+  const cardImages = [corridorImage, mapImage, signalImage, marketReviewImage, operationsImage, trendImage];
 
   return (
     <Layout>
@@ -54,6 +55,13 @@ const Insights = () => {
       </section>
 
       <Section>
+        <div className="mb-10 grid gap-4 sm:grid-cols-3">
+          {cardImages.slice(0, 3).map((image, index) => (
+            <div key={index} className="img-frame aspect-[16/8] border border-hairline">
+              <img src={image} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+            </div>
+          ))}
+        </div>
         <label className="mb-10 flex items-center gap-4 border border-hairline bg-background px-5 py-4">
           <Search className="h-4 w-4 text-muted-foreground" />
           <input

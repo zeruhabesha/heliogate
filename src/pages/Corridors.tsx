@@ -8,6 +8,7 @@ import world from "@/assets/world-corridors.jpg";
 import mining from "@/assets/sector-mining.jpg";
 import trade from "@/assets/sector-trade.jpg";
 import infra from "@/assets/sector-infrastructure.jpg";
+const corridorFutureSignal = "https://images.unsplash.com/photo-1465447142348-e9952c393450?auto=format&fit=crop&w=1600&q=80";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 const Corridors = () => {
@@ -122,7 +123,7 @@ const Corridors = () => {
           {[
             { img: trade, k: "l1", idx: "02" },
             { img: infra, k: "l2", idx: "03" },
-            { img: mining, k: "l3", idx: "04" },
+            { img: corridorFutureSignal, k: "l3", idx: "04" },
           ].map((c) => (
             <div key={c.k} className="tilt-card group">
               <div className="img-frame aspect-[4/3]">

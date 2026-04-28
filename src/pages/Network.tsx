@@ -10,6 +10,7 @@ const room = "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=for
 const corridorSignal = "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1600&q=80";
 const institutionCrane = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80";
 const partnerPlanning = "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80";
+const networkSignal = "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80";
 
 const Network = () => {
   const { lang } = useI18n();
@@ -36,7 +37,7 @@ const Network = () => {
     </section>
 
     <Section>
-      <div className="mb-10 grid gap-4 md:grid-cols-3">
+      <div className="mb-10 grid gap-4 md:grid-cols-4">
         <div className="img-frame aspect-[21/10] border border-hairline">
           <img src={corridorSignal} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
         </div>
@@ -45,6 +46,9 @@ const Network = () => {
         </div>
         <div className="img-frame aspect-[21/10] border border-hairline">
           <img src={partnerPlanning} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+        </div>
+        <div className="img-frame aspect-[21/10] border border-hairline">
+          <img src={networkSignal} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
         </div>
       </div>
       <div className="grid md:grid-cols-4 gap-px bg-hairline border border-hairline">
