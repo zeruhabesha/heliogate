@@ -5,11 +5,13 @@ import { serviceGroups } from "@/lib/siteContent";
 import { localizeService, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import constractionImage from "@/assets/constraction.jpg";
+import crossBorderTransactionImage from "@/assets/Cross-Border Transaction Structuring.jpg";
 
 const architecture = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80";
 const servicePreviewImages = [
-  "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1600&q=80",
+  constractionImage,
+  crossBorderTransactionImage,
   "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1600&q=80",
   "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
   "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80",

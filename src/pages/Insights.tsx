@@ -6,12 +6,13 @@ import { resources } from "@/lib/siteContent";
 import { localizeResource, siteUi } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
 import { ArrowUpRight, Search } from "lucide-react";
+import constractionImage from "@/assets/constraction.jpg";
 
 const topo = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80";
 const corridorImage = "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80";
 const mapImage = "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1600&q=80";
 const signalImage = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80";
-const marketReviewImage = "https://images.unsplash.com/photo-1551281044-8b0a0e8f5f5c?auto=format&fit=crop&w=1600&q=80";
+const marketReviewImage = constractionImage;
 const operationsImage = "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80";
 const trendImage = "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80";
 

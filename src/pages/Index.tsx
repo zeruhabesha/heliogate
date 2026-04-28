@@ -9,21 +9,27 @@ import heroVideo from "@/assets/hero-loop.mp4.asset.json";
 import mining from "@/assets/sector-mining.jpg";
 import trade from "@/assets/sector-trade.jpg";
 import infra from "@/assets/sector-infrastructure.jpg";
-import homeIntroCrane from "@/assets/home-intro-crane-color.jpg";
 import homeTradePort from "@/assets/home-trade-port-color.jpg";
 import homeActiveMineDetail from "@/assets/home-active-mine-detail.jpg";
-import homeValidationCore from "@/assets/home-validation-core.jpg";
 import homeMiningSignal from "@/assets/home-mining-signal-color.jpg";
 import homeCorridorSignal from "@/assets/home-corridor-signal-wide.jpg";
 import homeIntelligence from "@/assets/home-intelligence-color.jpg";
-import homeRouteMap from "@/assets/home-route-map-color.jpg";
-import homeInstitutionCrane from "@/assets/home-institution-crane-wide.jpg";
 import homeTrustLogistics from "@/assets/home-trust-logistics-wide.jpg";
-import world from "@/assets/world-corridors.jpg";
+import whyHelioGateImage1 from "@/assets/1 (1).jpg";
+import whyHelioGateImage2 from "@/assets/1 (2).jpg";
+import whyHelioGateImage3 from "@/assets/1 (3).jpg";
+import whyHelioGateImage4 from "@/assets/1 (4).jpg";
 import { ArrowRight, ArrowUpRight, ArrowDown } from "lucide-react";
 import { Counter } from "@/components/site/Counter";
 import { differentiators } from "@/lib/differentiators";
 import { localizeDifferentiator } from "@/lib/siteI18n";
+
+const homeIntroInfrastructure = "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=80";
+const homeValidationCore = "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80";
+const homeMethodProcess = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80";
+const homeArchitectureModules = "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80";
+const homeInstitutionMeeting = "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80";
+const whyHelioGateImages = [whyHelioGateImage1, whyHelioGateImage2, whyHelioGateImage3, whyHelioGateImage4];
 
 const Index = () => {
   const { t, lang } = useI18n();
@@ -110,7 +116,7 @@ const Index = () => {
             <SectionEyebrow>{t("intro.eyebrow")}</SectionEyebrow>
             <div className="mt-10 grid grid-cols-5 gap-3">
               <div className="img-frame col-span-3 aspect-[4/5] border border-hairline">
-                <img src={homeIntroCrane} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
+                <img src={homeIntroInfrastructure} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
               </div>
               <div className="col-span-2 space-y-3 pt-10">
                 <div className="img-frame aspect-square border border-hairline">
@@ -207,7 +213,7 @@ const Index = () => {
       {/* FLOW with corridor map background */}
       <section className="relative border-t border-hairline py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-35">
-          <img src={world} alt="" loading="lazy" className="w-full h-full object-cover saturate-125 contrast-105" />
+          <img src={homeMethodProcess} alt="" loading="lazy" className="w-full h-full object-cover saturate-125 contrast-105" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/35 to-background/70" />
         </div>
         <div className="relative container-wide">
@@ -318,11 +324,11 @@ const Index = () => {
             ))}
             <div className="grid grid-cols-2 gap-px bg-hairline border-x border-b border-hairline">
               <div className="img-frame aspect-[16/9]">
-                <img src={homeRouteMap} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
+                <img src={homeArchitectureModules} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
               </div>
               <div className="img-frame aspect-[16/9]">
-                <img src={homeInstitutionCrane} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
+                <img src={homeInstitutionMeeting} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
               </div>
             </div>
@@ -363,6 +369,14 @@ const Index = () => {
           <div className="md:col-span-5">
             <SectionEyebrow>{t("diff.eyebrow")}</SectionEyebrow>
             <SectionTitle>{t("diff.title")}</SectionTitle>
+            <div className="mt-10 grid grid-cols-2 gap-3">
+              {whyHelioGateImages.map((image, index) => (
+                <div key={index} className="img-frame aspect-square border border-hairline">
+                  <img src={image} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent" />
+                </div>
+              ))}
+            </div>
           </div>
           <div className="md:col-span-7">
             <ul>

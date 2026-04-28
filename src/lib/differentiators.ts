@@ -1,8 +1,8 @@
-import architecture from "@/assets/platform-architecture.jpg";
-import corridor from "@/assets/corridor.jpg";
-import mineral from "@/assets/detail-mineral.jpg";
-import topo from "@/assets/intel-topo.jpg";
-import room from "@/assets/engage-room.jpg";
+const executionImage = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80";
+const controlledAccessImage = "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80";
+const validationImage = "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=80";
+const corridorImage = "https://images.unsplash.com/photo-1494412685616-a5d310fbb07d?auto=format&fit=crop&w=1600&q=80";
+const selectiveEngagementImage = "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80";
 
 export type Differentiator = {
   slug: string;
@@ -23,7 +23,7 @@ export const differentiators: Differentiator[] = [
     title: "Execution-focused, not speculative",
     short:
       "HelioGate advances opportunities around executable conditions, not market noise or abstract deal appetite.",
-    image: architecture,
+    image: executionImage,
     proof: [
       "Each mandate is tested against counterparty readiness, asset reality, documentation path, and corridor constraints.",
       "Capital is introduced after execution logic is clear enough to support a serious transaction sequence.",
@@ -44,7 +44,7 @@ export const differentiators: Differentiator[] = [
     title: "No open deal circulation",
     short:
       "Opportunities are not broadcast into loose networks. Access is controlled by role, relevance, and execution fit.",
-    image: room,
+    image: controlledAccessImage,
     proof: [
       "Counterparties are approached selectively after qualification, not added to a general distribution list.",
       "Sensitive opportunity details remain sequenced until role, intent, and mandate alignment are established.",
@@ -65,7 +65,7 @@ export const differentiators: Differentiator[] = [
     title: "Structured validation before capital involvement",
     short:
       "Validation happens before capital is placed into the conversation, so investors and operators are not solving basic uncertainty late.",
-    image: mineral,
+    image: validationImage,
     proof: [
       "Supply integrity, buyer readiness, regulatory conditions, logistics, and documentation are checked before deeper capital work.",
       "Validation is treated as a sequence of gates rather than a single claim or presentation deck.",
@@ -86,7 +86,7 @@ export const differentiators: Differentiator[] = [
     title: "Corridor-based intelligence approach",
     short:
       "HelioGate evaluates opportunities through the corridors that make execution possible: route, jurisdiction, buyer, logistics, and timing.",
-    image: topo,
+    image: corridorImage,
     proof: [
       "Corridor work connects asset-level facts with market demand, regulatory posture, and movement constraints.",
       "The platform watches where supply and demand can realistically meet, not only where commercial interest exists.",
@@ -107,7 +107,7 @@ export const differentiators: Differentiator[] = [
     title: "Selective engagement with qualified partners only",
     short:
       "HelioGate works with participants who bring relevant capacity, mandate authority, operational access, or capital alignment.",
-    image: corridor,
+    image: selectiveEngagementImage,
     proof: [
       "Engagement starts with role, organization, corridor fit, and execution relevance.",
       "The platform favors direct operators, serious buyers, capital partners, and institution-grade participants.",

@@ -18,18 +18,15 @@ import {
   Sprout,
   Wrench,
 } from "lucide-react";
-import architecture from "@/assets/platform-architecture.jpg";
-import corridor from "@/assets/corridor.jpg";
-import mineral from "@/assets/detail-mineral.jpg";
-import room from "@/assets/engage-room.jpg";
-import trade from "@/assets/sector-trade.jpg";
-import infra from "@/assets/sector-infrastructure.jpg";
-import serviceTransaction from "@/assets/service-transaction-structuring.jpg";
-import serviceConstruction from "@/assets/service-construction-turnkey.jpg";
-import serviceIct from "@/assets/service-ict-digital.jpg";
-import serviceEducation from "@/assets/service-education-software.jpg";
-import serviceFacilities from "@/assets/service-facilities-security.jpg";
-import serviceFinancial from "@/assets/service-financial-fund.jpg";
+import constractionImage from "@/assets/constraction.jpg";
+import crossBorderTransactionImage from "@/assets/Cross-Border Transaction Structuring.jpg";
+
+const serviceTransaction = constractionImage;
+const serviceConstruction = crossBorderTransactionImage;
+const serviceIct = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80";
+const serviceEducation = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80";
+const serviceFacilities = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80";
+const serviceFinancial = "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1600&q=80";
 
 export type Signal = "Active" | "Emerging" | "Future";
 

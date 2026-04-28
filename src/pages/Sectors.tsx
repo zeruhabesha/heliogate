@@ -5,22 +5,23 @@ import { sectors } from "@/lib/siteContent";
 import { localizeSector } from "@/lib/siteI18n";
 import { useI18n } from "@/i18n/I18nProvider";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import miningMineralsImage from "@/assets/Mining & Minerals.jpg";
 
-const mineral = "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1600&q=80";
-const sectorImages = [
-  "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1485081669829-bacb8c7bb1f3?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80",
-];
+const mineral = "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1600&q=80";
+const sectorImageBySlug: Record<string, string> = {
+  "mining-minerals": miningMineralsImage,
+  "construction-electromechanical": "https://images.unsplash.com/photo-1485081669829-bacb8c7bb1f3?auto=format&fit=crop&w=1600&q=80",
+  "ict-telecom-fintech": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+  "education-software": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80",
+  "facilities-security": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
+  "management-consulting": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
+  "fund-management": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+  "import-export": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80",
+  "agriculture-agribusiness": "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1600&q=80",
+  "energy-utilities": "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80",
+  "hospitality-tourism": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80",
+  "health-logistics": "https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?auto=format&fit=crop&w=1600&q=80",
+};
 
 const signalClass = {
   Active: "text-signal",
@@ -114,7 +115,12 @@ const Sectors = () => {
               </div>
               <div className="md:col-span-8">
                 <div className="img-frame mb-6 aspect-[21/8] border border-hairline">
-                  <img src={sectorImages[index % sectorImages.length]} alt="" loading="lazy" className="h-full w-full object-cover saturate-125 contrast-105" />
+                  <img
+                    src={sectorImageBySlug[sector.slug] ?? sectorImageBySlug["management-consulting"]}
+                    alt=""
+                    loading="lazy"
+                    className="h-full w-full object-cover saturate-125 contrast-105"
+                  />
                 </div>
                 <div className="grid md:grid-cols-2 gap-px bg-hairline border border-hairline">
                   {sector.offerings.map((offering, offeringIndex) => (

@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/site/Layout";
 import { Section, SectionEyebrow, SectionTitle } from "@/components/site/Section";
 import { useI18n } from "@/i18n/I18nProvider";
-import architecture from "@/assets/platform-architecture.jpg";
-import identityCrane from "@/assets/platform-identity-crane.jpg";
-import activeExecutionMine from "@/assets/active-execution-mine.jpg";
-import topo from "@/assets/intel-topo.jpg";
-import room from "@/assets/engage-room.jpg";
+const architecture = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80";
+const identityPartners = "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80";
+const executionDashboard = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80";
+const topo = "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80";
+const room = "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80";
 import { impactMetrics, values } from "@/lib/siteContent";
 import { localizeMetric, localizeValue } from "@/lib/siteI18n";
 import { ArrowRight, Compass, Target } from "lucide-react";
@@ -130,7 +130,7 @@ const Platform = () => {
             <SectionEyebrow>01 - {copy.identity}</SectionEyebrow>
             <SectionTitle>{t("plat.who.t")}</SectionTitle>
             <div className="mt-10 img-frame aspect-[4/5]">
-              <img src={identityCrane} alt="" loading="lazy" className="w-full h-full object-cover opacity-80" />
+              <img src={identityPartners} alt="" loading="lazy" className="w-full h-full object-cover opacity-80" />
             </div>
           </div>
           <div className="md:col-span-7 space-y-6 md:pt-2">
@@ -145,7 +145,7 @@ const Platform = () => {
               ))}
             </div>
             <div className="img-frame aspect-[21/8] border border-hairline">
-              <img src={activeExecutionMine} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
+              <img src={executionDashboard} alt="" loading="lazy" className="h-full w-full object-cover opacity-100 saturate-125 contrast-105" />
               <div className="absolute inset-0 bg-gradient-to-r from-background/20 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
                 <span className="font-mono-tag text-[10px] uppercase tracking-[0.22em] text-foreground">{copy.approach}</span>
