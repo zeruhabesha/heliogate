@@ -56,10 +56,10 @@ const topics: Topic[] = [
   {
     keywords: ["contact", "engage", "inquiry", "email", "brief", "access", "request"],
     answers: {
-      en: "To engage, use the inquiry flow on the Engage page or contact inquiries@heliogate.com. Include your role, organization, corridor or sector interest, and the execution context you want reviewed.",
-      fr: "Pour engager un echange, utilisez le formulaire de la page Engagement ou contactez inquiries@heliogate.com. Indiquez votre role, votre organisation, le corridor ou secteur concerne et le contexte d'execution a examiner.",
-      zh: "如需合作，请使用“联系”页面的咨询流程，或联系 inquiries@heliogate.com。请说明您的角色、机构、关注的通道或行业，以及希望评估的执行背景。",
-      ar: "للتواصل، استخدم نموذج الاستفسار في صفحة التواصل أو راسل inquiries@heliogate.com. اذكر دورك وجهتك والممر أو القطاع محل الاهتمام وسياق التنفيذ المطلوب مراجعته.",
+      en: "To engage, use the inquiry flow on the Engage page or contact info@heliogategroup.com. For support, use support@heliogategroup.com. Include your role, organization, corridor or sector interest, and the execution context you want reviewed.",
+      fr: "Pour engager un echange, utilisez le formulaire de la page Engagement ou contactez info@heliogategroup.com. Pour le support, utilisez support@heliogategroup.com. Indiquez votre role, votre organisation, le corridor ou secteur concerne et le contexte d'execution a examiner.",
+      zh: "如需合作，请使用“联系”页面的咨询流程，或联系 info@heliogategroup.com。支持请使用 support@heliogategroup.com。请说明您的角色、机构、关注的通道或行业，以及希望评估的执行背景。",
+      ar: "للتواصل، استخدم نموذج الاستفسار في صفحة التواصل أو راسل info@heliogategroup.com. وللدعم استخدم support@heliogategroup.com. اذكر دورك وجهتك والممر أو القطاع محل الاهتمام وسياق التنفيذ المطلوب مراجعته.",
     },
   },
 ];

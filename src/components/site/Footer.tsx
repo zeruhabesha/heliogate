@@ -115,11 +115,11 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li>
                 <span className="block text-xs text-muted-foreground mb-0.5">{t("eng.contact.partnership")}</span>
-                <a href="mailto:inquiries@heliogate.com" className="hover:text-signal transition">inquiries@heliogate.com</a>
+                <a href="mailto:info@heliogategroup.com" className="hover:text-signal transition">info@heliogategroup.com</a>
               </li>
               <li>
                 <span className="block text-xs text-muted-foreground mb-0.5">{t("eng.contact.ir")}</span>
-                <a href="mailto:ir@heliogate.com" className="hover:text-signal transition">ir@heliogate.com</a>
+                <a href="mailto:support@heliogategroup.com" className="hover:text-signal transition">support@heliogategroup.com</a>
               </li>
             </ul>
           </div>

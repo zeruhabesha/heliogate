@@ -48,7 +48,7 @@ export const Header = () => {
       <div className="container-wide flex h-16 items-center justify-between gap-3 md:h-20">
         <Logo />
 
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden xl:flex items-center gap-7">
           {navItems.map(item => (
             <NavLink
               key={item.to}
@@ -64,7 +64,7 @@ export const Header = () => {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden xl:flex items-center gap-6">
           <ThemeToggle />
           <LangSwitcher />
           <NavLink
@@ -78,7 +78,7 @@ export const Header = () => {
 
         <button
           onClick={() => setOpen((value) => !value)}
-          className="md:hidden flex h-10 w-10 items-center justify-center border border-hairline text-foreground transition-colors hover:border-foreground"
+          className="xl:hidden flex h-10 w-10 items-center justify-center border border-hairline text-foreground transition-colors hover:border-foreground"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-navigation"
@@ -92,7 +92,7 @@ export const Header = () => {
     {open && (
       <div
         id="mobile-navigation"
-        className="fixed inset-x-0 bottom-0 top-16 z-[60] bg-background md:hidden"
+        className="fixed inset-x-0 bottom-0 top-16 md:top-20 z-[60] bg-background xl:hidden"
       >
         <div className="container-wide flex h-full min-h-0 flex-col overflow-y-auto py-5">
             <nav className="border-t border-hairline">
@@ -121,7 +121,7 @@ export const Header = () => {
               <div className="border-t border-hairline pt-6">
                 <div className="mb-6 flex items-center justify-between">
                   <div className="flex items-center gap-5">
-                    <LangSwitcher />
+                    <LangSwitcher mobile />
                     <ThemeToggle />
                   </div>
                   <span className="eyebrow text-[10px]">{navCopy.menu}</span>

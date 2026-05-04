@@ -19,7 +19,7 @@ import whyHelioGateImage1 from "@/assets/1 (1).jpg";
 import whyHelioGateImage2 from "@/assets/1 (2).jpg";
 import whyHelioGateImage3 from "@/assets/1 (3).jpg";
 import whyHelioGateImage4 from "@/assets/1 (4).jpg";
-import { ArrowRight, ArrowUpRight, ArrowDown } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ArrowDown, Globe2, ShieldCheck, TrendingUp, Landmark } from "lucide-react";
 import { Counter } from "@/components/site/Counter";
 import { differentiators } from "@/lib/differentiators";
 import { localizeDifferentiator } from "@/lib/siteI18n";
@@ -30,9 +30,64 @@ const homeMethodProcess = "https://images.unsplash.com/photo-1454165804606-c3d57
 const homeArchitectureModules = "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80";
 const homeInstitutionMeeting = "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80";
 const whyHelioGateImages = [whyHelioGateImage1, whyHelioGateImage2, whyHelioGateImage3, whyHelioGateImage4];
+const strategicPillarsByLang = {
+  en: {
+    eyebrow: "Operating foundations",
+    title: "Pan-African reach, disciplined governance, long-horizon growth",
+    lead: "HelioGate operates across corridor environments where institutional credibility, execution discipline, and durable partnerships matter.",
+    cards: [
+      { icon: Globe2, title: "Geographic reach", body: "Cross-border corridor exposure across mining, trade, and infrastructure markets." },
+      { icon: ShieldCheck, title: "Governance", body: "Transparent mandate screening, documented validation, and accountable counterpart selection." },
+      { icon: TrendingUp, title: "Strategic growth", body: "Selective growth through bankable throughput, verified demand, and execution quality." },
+      { icon: Landmark, title: "Institutional heritage", body: "Built for long-term alignment with operators, institutions, and sovereign-linked stakeholders." },
+    ],
+  },
+  fr: {
+    eyebrow: "Fondations operationnelles",
+    title: "Portee panafricaine, gouvernance rigoureuse, croissance de long terme",
+    lead: "HelioGate opere dans des environnements de corridor ou la credibilite institutionnelle, la discipline d'execution et les partenariats durables sont essentiels.",
+    cards: [
+      { icon: Globe2, title: "Portee geographique", body: "Presence transfrontaliere sur des corridors lies aux mines, au commerce et a l'infrastructure." },
+      { icon: ShieldCheck, title: "Gouvernance", body: "Selection transparente des mandats, validation documentee et choix responsable des contreparties." },
+      { icon: TrendingUp, title: "Croissance strategique", body: "Croissance selective fondee sur un debit bancable, une demande verifiee et une execution fiable." },
+      { icon: Landmark, title: "Ancrage institutionnel", body: "Concu pour un alignement de long terme avec operateurs, institutions et parties prenantes souveraines." },
+    ],
+  },
+  zh: {
+    eyebrow: "运营基础",
+    title: "泛非覆盖、严谨治理、长期增长",
+    lead: "HelioGate 在重视机构可信度、执行纪律和长期合作关系的通道环境中开展业务。",
+    cards: [
+      { icon: Globe2, title: "地理覆盖", body: "覆盖采矿、贸易与基础设施相关的跨境通道市场。" },
+      { icon: ShieldCheck, title: "治理", body: "透明的项目筛选、可追踪的验证流程与负责的交易方选择。" },
+      { icon: TrendingUp, title: "战略增长", body: "围绕可融资吞吐量、经验证需求与高质量执行进行选择性增长。" },
+      { icon: Landmark, title: "机构化基础", body: "面向与运营方、机构及主权相关方的长期协同而构建。" },
+    ],
+  },
+  ar: {
+    eyebrow: "مرتكزات التشغيل",
+    title: "انتشار افريقي واسع وحوكمة منضبطة ونمو طويل المدى",
+    lead: "تعمل HelioGate عبر بيئات الممرات حيث المصداقية المؤسسية وانضباط التنفيذ والشراكات المستدامة عوامل حاسمة.",
+    cards: [
+      { icon: Globe2, title: "الانتشار الجغرافي", body: "حضور عابر للحدود عبر ممرات التعدين والتجارة والبنية التحتية." },
+      { icon: ShieldCheck, title: "الحوكمة", body: "فحص شفاف للفرص وتحقق موثق واختيار مسؤول للاطراف المقابلة." },
+      { icon: TrendingUp, title: "النمو الاستراتيجي", body: "نمو انتقائي قائم على تدفقات قابلة للتمويل وطلب موثق وجودة تنفيذ." },
+      { icon: Landmark, title: "الركيزة المؤسسية", body: "مبني على مواءمة طويلة المدى مع المشغلين والمؤسسات والجهات المرتبطة بالسيادة." },
+    ],
+  },
+} as const;
+
+const partnerStripByLang = {
+  en: { label: "Selected network", items: ["Operators", "Trade Finance Institutions", "Sovereign Counterparties", "Qualified Investors", "Logistics Networks", "Technical Advisors"] },
+  fr: { label: "Reseau selectionne", items: ["Operateurs", "Institutions de finance commerciale", "Contreparties souveraines", "Investisseurs qualifies", "Reseaux logistiques", "Conseillers techniques"] },
+  zh: { label: "精选网络", items: ["运营方", "贸易金融机构", "主权交易方", "合格投资者", "物流网络", "技术顾问"] },
+  ar: { label: "شبكة مختارة", items: ["المشغلون", "مؤسسات تمويل التجارة", "الاطراف السيادية", "المستثمرون المؤهلون", "شبكات لوجستية", "مستشارون فنيون"] },
+} as const;
 
 const Index = () => {
   const { t, lang } = useI18n();
+  const strategicPillars = strategicPillarsByLang[lang];
+  const partnerStrip = partnerStripByLang[lang];
   const copy = {
     en: { sectors: "Sectors", sector: "Sector", secTitle: "Sectors of Engagement", secLead: "We focus where execution complexity is high and corridor alignment creates structural advantage.", mining: "Mining", miningTitle: "Mining & Minerals", miningBody: "Critical and industrial minerals - copper, gold, manganese, lithium-grade. Operator-anchored, validated production.", trade: "Trade", tradeTitle: "Strategic Trade", tradeBody: "Commodity flows aligned to verified offtake routes and qualified buyer mandates across long-haul corridors.", infrastructure: "Infrastructure", infraTitle: "Infrastructure", infraBody: "Logistics, processing, and corridor-linked infrastructure structured around real throughput and bankable counterparties.", active: "Active", structuring: "Structuring", emerging: "Emerging", corridor: "Corridor", signal: "Signal", live: "Live", corridorMap: "Corridor map", scroll: "Scroll to explore", metrics: ["Active corridors monitored", "Counterparty jurisdictions", "Validated before capital", "Selective engagement model"], marquee: ["Mining", "Strategic Trade", "Cross-Border Finance", "Industrial Supply", "Corridor Intelligence", "Execution Discipline", "Sovereign Alignment"], missionEyebrow: "Foundation", missionTitle: "Mission and vision", missionLead: "HelioGate is built around disciplined validation, selective execution, and long-horizon corridor alignment.", missionTag: "Validated before capital", missionLabel: "Mission", missionBody: "To identify, validate, and structure corridor-linked opportunities in mining, strategic trade, and infrastructure before capital is deployed.", missionFoot: "Structured mandate", visionLabel: "Vision", visionBody: "To become a trusted platform for disciplined cross-border execution where institutions, operators, and investors align around real assets, verified demand, and bankable corridors.", visionFoot: "Institutional horizon", procEyebrow: "Method", procTitle: "Five gates between signal and capital", procLead: "Each gate is a structural filter. Opportunities that do not pass a gate do not progress, regardless of size.", trustEyebrow: "- Operating context", trustTitle: "Working at the level of institutions", trustLead: "HelioGate operates with operators, sovereign-aligned counterparties, trade-finance institutions, and qualified investors. Engagement is structured, not transactional.", activeCorridors: "Active corridors", jurisdictions: "Jurisdictions", validated: "Validated", engagement: "Engagement", exploreModel: "Explore the full model", ctaPanelEyebrow: "Next step" },
     fr: { sectors: "Secteurs", sector: "Secteur", secTitle: "Secteurs d'engagement", secLead: "Nous intervenons la ou la complexite d'execution est elevee et ou l'alignement corridor cree un avantage structurel.", mining: "Mines", miningTitle: "Mines et mineraux", miningBody: "Mineraux critiques et industriels, production validee et ancree par operateurs.", trade: "Commerce", tradeTitle: "Commerce strategique", tradeBody: "Flux de matieres alignes sur des routes d'enlevement verifiees et des mandats acheteurs qualifies.", infrastructure: "Infrastructure", infraTitle: "Infrastructure", infraBody: "Logistique, transformation et infrastructure de corridor structurees autour d'un debit reel.", active: "Actif", structuring: "Structuration", emerging: "Emergent", corridor: "Corridor", signal: "Signal", live: "Direct", corridorMap: "Carte corridor", scroll: "Defiler pour explorer", metrics: ["Corridors actifs suivis", "Juridictions de contreparties", "Valide avant capital", "Modele d'engagement selectif"], marquee: ["Mines", "Commerce strategique", "Finance transfrontaliere", "Approvisionnement industriel", "Intelligence corridor", "Discipline d'execution", "Alignement souverain"], missionEyebrow: "Fondation", missionTitle: "Mission et vision", missionLead: "HelioGate repose sur une validation rigoureuse, une execution selective et un alignement de corridor a long terme.", missionTag: "Valide avant capital", missionLabel: "Mission", missionBody: "Identifier, valider et structurer des opportunites liees aux corridors dans les mines, le commerce strategique et l'infrastructure avant le deploiement du capital.", missionFoot: "Mandat structure", visionLabel: "Vision", visionBody: "Devenir une plateforme de confiance pour une execution transfrontaliere rigoureuse, ou institutions, operateurs et investisseurs s'alignent autour d'actifs reels, d'une demande verifiee et de corridors bancables.", visionFoot: "Horizon institutionnel", procEyebrow: "Methode", procTitle: "Cinq portes entre le signal et le capital", procLead: "Chaque porte est un filtre structurel. Les opportunites qui ne passent pas une porte ne progressent pas.", trustEyebrow: "- Contexte operationnel", trustTitle: "Travailler au niveau des institutions", trustLead: "HelioGate travaille avec operateurs, contreparties institutionnelles, finance commerciale et investisseurs qualifies. L'engagement est structure, pas transactionnel.", activeCorridors: "Corridors actifs", jurisdictions: "Juridictions", validated: "Valide", engagement: "Engagement", exploreModel: "Explorer le modele complet", ctaPanelEyebrow: "Prochaine etape" },
@@ -118,6 +173,29 @@ const Index = () => {
       {/* MARQUEE */}
       <Marquee items={copy.marquee} />
 
+      {/* STRATEGIC PILLARS */}
+      <Section className="border-t border-hairline bg-gradient-to-b from-card/40 via-background to-background">
+        <div className="flex items-end justify-between mb-10 flex-wrap gap-6">
+          <div className="max-w-4xl">
+            <SectionEyebrow>{strategicPillars.eyebrow}</SectionEyebrow>
+            <SectionTitle>{strategicPillars.title}</SectionTitle>
+          </div>
+        </div>
+        <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed mb-12">{strategicPillars.lead}</p>
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-px bg-hairline border border-hairline">
+          {strategicPillars.cards.map((card) => (
+            <div key={card.title} className="group relative overflow-hidden bg-background p-7 md:p-8 hover:bg-card transition-colors">
+              <div className="absolute inset-0 bg-gradient-to-br from-signal/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              <div className="inline-flex items-center justify-center w-10 h-10 border border-hairline bg-card/70 mb-6">
+                <card.icon className="w-5 h-5 text-signal" />
+              </div>
+              <p className="font-serif-display text-2xl leading-tight mb-3">{card.title}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{card.body}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* INTRO */}
       <Section>
         <div className="grid md:grid-cols-12 gap-10 items-start">
@@ -156,7 +234,7 @@ const Index = () => {
       </Section>
 
       {/* MISSION / VISION */}
-      <Section className="border-t border-hairline">
+      <Section className="border-t border-hairline bg-gradient-to-b from-background via-card/20 to-background">
         <div className="grid md:grid-cols-12 gap-10 items-start">
           <div className="md:col-span-4 md:sticky md:top-28">
             <SectionEyebrow>{copy.missionEyebrow}</SectionEyebrow>
@@ -170,7 +248,7 @@ const Index = () => {
             </div>
           </div>
           <div className="md:col-span-8 grid md:grid-cols-2 gap-6">
-            <div className="relative overflow-hidden border border-hairline bg-card/40 p-8 md:p-10 min-h-[320px] flex flex-col justify-between">
+            <div className="relative overflow-hidden border border-hairline bg-card/60 p-8 md:p-10 min-h-[320px] flex flex-col justify-between shadow-[var(--shadow-elev)]">
               <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.03] via-transparent to-transparent pointer-events-none" />
               <div className="relative flex items-center justify-between">
                 <p className="font-mono-tag text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{copy.missionLabel}</p>
@@ -232,7 +310,7 @@ const Index = () => {
       </Section>
 
       {/* SECTORS PREVIEW */}
-      <Section className="border-t border-hairline bg-card/20">
+      <Section className="border-t border-hairline bg-gradient-to-b from-card/35 via-background to-background">
         <div className="flex items-end justify-between mb-12 flex-wrap gap-6">
           <div>
             <SectionEyebrow>08 - {copy.sectors}</SectionEyebrow>
@@ -402,7 +480,7 @@ const Index = () => {
       </Section>
 
       {/* TRUST STRIP */}
-      <Section className="border-t border-hairline bg-card/20">
+      <Section className="border-t border-hairline bg-gradient-to-b from-background via-card/25 to-background">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <p className="eyebrow mb-6">{copy.trustEyebrow}</p>
@@ -424,6 +502,29 @@ const Index = () => {
                 <span className="font-mono-tag text-[10px] uppercase tracking-[0.22em] text-signal">{copy.structuring}</span>
               </div>
             </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* PARTNER STRIP */}
+      <Section className="border-t border-hairline py-14 md:py-16 bg-gradient-to-b from-background via-card/20 to-background">
+        <div className="border border-hairline bg-card/40 p-6 md:p-8">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+            <p className="eyebrow">{partnerStrip.label}</p>
+            <p className="text-sm text-muted-foreground">
+              Institutional ecosystem aligned for execution
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3">
+            {partnerStrip.items.map((item) => (
+              <span
+                key={item}
+                className="group inline-flex items-center gap-3 border border-hairline bg-background px-4 py-3.5 font-mono-tag text-[10px] uppercase tracking-[0.18em] text-foreground/80 hover:text-foreground hover:border-foreground/40 transition-colors"
+              >
+                <span className="w-1.5 h-1.5 bg-signal inline-block group-hover:scale-125 transition-transform" />
+                {item}
+              </span>
+            ))}
           </div>
         </div>
       </Section>
@@ -468,7 +569,7 @@ const Index = () => {
 
       {/* CTA */}
       <Section className="border-t border-hairline">
-        <div className="relative overflow-hidden border border-hairline bg-card/30 p-10 md:p-16 text-center max-w-5xl mx-auto">
+        <div className="relative overflow-hidden border border-hairline bg-gradient-to-br from-card/60 via-background to-card/40 p-10 md:p-16 text-center max-w-5xl mx-auto shadow-[var(--shadow-elev)]">
           <div className="absolute inset-0" style={{ background: "var(--gradient-spot)" }} />
           <div className="relative">
             <p className="eyebrow mb-3">{copy.ctaPanelEyebrow}</p>

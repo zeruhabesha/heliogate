@@ -171,8 +171,8 @@ export const ChatWidget = () => {
           <div className="px-4 py-2 border-t border-hairline">
             <p className="text-[10px] text-muted-foreground font-mono-tag uppercase tracking-[0.18em]">
               {t("chat.foot")} ·{" "}
-              <a href="mailto:inquiries@heliogate.com" className="hover:text-foreground transition">
-                inquiries@heliogate.com
+              <a href="mailto:info@heliogategroup.com" className="hover:text-foreground transition">
+                info@heliogategroup.com
               </a>
             </p>
           </div>

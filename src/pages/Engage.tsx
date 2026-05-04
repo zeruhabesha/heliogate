@@ -141,19 +141,19 @@ const Engage = () => {
                   {t("eng.contact.partnership")}
                 </p>
                 <a
-                  href="mailto:inquiries@heliogate.com"
+                  href="mailto:info@heliogategroup.com"
                   className="font-serif-display text-2xl hover:text-signal transition"
                 >
-                  inquiries@heliogate.com
+                  info@heliogategroup.com
                 </a>
               </div>
               <div>
                 <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] mb-2">{t("eng.contact.ir")}</p>
                 <a
-                  href="mailto:ir@heliogate.com"
+                  href="mailto:support@heliogategroup.com"
                   className="font-serif-display text-2xl hover:text-signal transition"
                 >
-                  ir@heliogate.com
+                  support@heliogategroup.com
                 </a>
               </div>
               <div className="pt-8 border-t border-hairline">
